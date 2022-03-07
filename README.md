@@ -1,33 +1,42 @@
-# Frontend Mentor - QR code component solution
+# Basic E-commerce application
 
-This is a solution to the [QR code component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution of creating basic e-commerce system using native PHP
 
 ## Table of contents
 
 - [Overview](#overview)
-  - [Screenshot](#screenshot)
+    - [Screenshot](#screenshot)
 - [My process](#my-process)
-  - [Built with](#built-with)
-  - [Challenge Deployed version](https://mohamedeldefrawy.github.io/Frontend-Mentor---QR-code-component/)
+    - [Built with](#built-with)
+
+[//]: # (  - [Challenge Deployed version]&#40;https://mohamedeldefrawy.github.io/Frontend-Mentor---QR-code-component/&#41;)
+
 - [Author](#author)
 
 ## Overview
 
 ### Screenshot
 
-![](screenshots/Desktop-view.png)
-![](screenshots/Mobile-view.png)
+[//]: # (![]&#40;screenshots/Desktop-view.png&#41;)
+
+[//]: # (![]&#40;screenshots/Mobile-view.png&#41;)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- media query
-- Flexbox
+[//]: # (- Semantic HTML5 markup)
+
+[//]: # (- CSS custom properties)
+
+[//]: # (- media query)
+
+[//]: # (- Flexbox)
 
 ## Author
 
-- LinkedIn - [Mohamed Eldefrawy](https://www.linkedin.com/in/mohamedeldefrawy/)
-- Frontend Mentor - [MohamedEldefrawy](https://www.frontendmentor.io/profile/MohamedEldefrawy)
+[//]: # ()
+
+[//]: # (- LinkedIn - [Mohamed Eldefrawy]&#40;https://www.linkedin.com/in/mohamedeldefrawy/&#41;)
+
+[//]: # (- Frontend Mentor - [MohamedEldefrawy]&#40;https://www.frontendmentor.io/profile/MohamedEldefrawy&#41;)
