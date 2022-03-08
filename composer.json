@@ -1,0 +1,25 @@
+{
+  "name": "iti/basic-commerce",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mohamed Eldefrawy",
+      "email": "Mohamed.Eldefrawy13026011@aiet.edu.eg.com"
+    }
+  ],
+  "require": {
+    "illuminate/database": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "Model",
+      "Dto",
+      "Services"
+    ],
+    "files": [
+      "config.php"
+    ]
+  }
+}
