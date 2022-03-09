@@ -14,8 +14,7 @@
   },
   "autoload": {
     "classmap": [
-      "Model",
-      "Dto",
+      "Models",
       "Services"
     ],
     "files": [
