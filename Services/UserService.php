@@ -11,22 +11,48 @@ class UserService
         $this->dbContext = new DatabaseConnector();
     }
 
+    /**
+     * get all users
+     * return Collection of users
+     * @return Illuminate\Support\Collection
+     */
     public function getUsers(): Collection
     {
         return $this->dbContext->getDbc()::table("users")->select("e_mail")->get();
     }
 
-    private function getUserById($id)
+
+    /**
+     * get user by id
+     * return selected user or NULL
+     * @param int $id
+     * @return stdClass|null
+     */
+    private function getUserById(int $id): stdClass|null
     {
-        return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail")->get()->first();
+        return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail")->first();
     }
 
-    private function getUserByEmail($email)
+    /**
+     * get user by email
+     * return selected user or NULL
+     * @param string $email
+     * @return stdClass|null
+     */
+    private function getUserByEmail(string $email): stdClass|null
     {
-        return $this->dbContext->getDbc()::table('users')->where("ID", $email)->select("e_mail")->get()->first();
+        return $this->dbContext->getDbc()::table('users')->where("e_mail", $email)->select("e_mail")->first();
     }
 
-    public function insertUser($email, $password): bool
+    /**
+     * update user data
+     * return true if user inserted
+     * false if user not inserted
+     * @param string $email
+     * @param string $password
+     * @return bool
+     */
+    public function insertUser(string $email, string $password): bool
     {
         $selectedUser = $this->getUserByEmail($email);
         $isInserted = false;
@@ -36,17 +62,32 @@ class UserService
             $this->dbContext->getDbc()::table('users')->insert($newUser);
             $isInserted = true;
         }
+
         return $isInserted;
     }
 
-    public function updateUser($id, $email, $password): int
+    /**
+     * update user data
+     * return affected rows number
+     * @param int $id
+     * @param string $email
+     * @param string $password
+     * @return int
+     */
+    public function updateUser(int $id, string $email, string $password): int
     {
         return $this->dbContext->getDbc()::table('users')
             ->where('ID', $id)
             ->update(['e_mail' => $email, 'password', $password]);
     }
 
-    public function removeUser($id): int
+    /**
+     * delete user from database.
+     * return affected rows number
+     * @param int $id
+     * @return int
+     */
+    public function removeUser(int $id): int
     {
         return $this->dbContext->getDbc()::table('users')->where('ID', $id)->delete();
     }

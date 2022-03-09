@@ -5,9 +5,8 @@ require_once("vendor/autoload.php");
 
 $userService = new UserService();
 
-$allUsers = $userService->getUsers();
-$selectedUser = $userService->getUserById(5);
-var_dump($selectedUser);
+$allUsers = $userService->getUserByEmail("muhammed@123.com");
+var_dump($allUsers);
 ?>
 <!doctype html>
 
