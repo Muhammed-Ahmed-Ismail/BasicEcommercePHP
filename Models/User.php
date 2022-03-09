@@ -1,9 +1,10 @@
 <?php
 
-class UserDto
+class User
 {
     private $id;
     private $email;
+    private $password;
 
     /**
      * @return mixed
@@ -37,5 +38,20 @@ class UserDto
         $this->email = $email;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password): void
+    {
+        $this->password = $password;
+    }
 
 }
