@@ -28,7 +28,7 @@ class UserService
      * @param int $id
      * @return stdClass|null
      */
-    private function getUserById(int $id): stdClass|null
+    private function getUserById(int $id): ?stdClass
     {
         return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail")->first();
     }
@@ -39,7 +39,7 @@ class UserService
      * @param string $email
      * @return stdClass|null
      */
-    private function getUserByEmail(string $email): stdClass|null
+    private function getUserByEmail(string $email): ?stdClass
     {
         return $this->dbContext->getDbc()::table('users')->where("e_mail", $email)->select("e_mail")->first();
     }
