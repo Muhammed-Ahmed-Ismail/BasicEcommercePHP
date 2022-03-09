@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Collection;
+
 class UserService
 {
     private DatabaseConnector $dbContext;
@@ -9,36 +11,44 @@ class UserService
         $this->dbContext = new DatabaseConnector();
     }
 
-    public function getUsers(): array
+    public function getUsers(): Collection
     {
-        $users = array();
+        return $this->dbContext->getDbc()::table("users")->select("e_mail")->get();
+    }
 
-        $result = $this->dbContext->getDbc()::table("users")->get();
-        foreach ($result as $data) {
-            $tempUser = new UserDto();
-            $tempUser->setId($data->ID);
-            $tempUser->setEmail($data->e_mail);
-            $users[] = $tempUser;
+    private function getUserById($id)
+    {
+        return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail")->get()->first();
+    }
+
+    private function getUserByEmail($email)
+    {
+        return $this->dbContext->getDbc()::table('users')->where("ID", $email)->select("e_mail")->get()->first();
+    }
+
+    public function insertUser($email, $password): bool
+    {
+        $selectedUser = $this->getUserByEmail($email);
+        $isInserted = false;
+
+        if (is_null($selectedUser)) {
+            $newUser = ["e_mail" => $email, "password" => $password];
+            $this->dbContext->getDbc()::table('users')->insert($newUser);
+            $isInserted = true;
         }
-        return $users;
+        return $isInserted;
     }
 
-    public function getUserById($id): UserDto
+    public function updateUser($id, $email, $password): int
     {
-        $selectedUser = new UserDto();
-        $result = $this->dbContext->getDbc()::table('users')->where("ID", $id)->first();
-        $selectedUser->setId($result->ID);
-        $selectedUser->setEmail($result->e_mail);
-        return $selectedUser;
+        return $this->dbContext->getDbc()::table('users')
+            ->where('ID', $id)
+            ->update(['e_mail' => $email, 'password', $password]);
     }
 
-    public function getUserByEmail($email)
+    public function removeUser($id): int
     {
-        $selectedUser = new UserDto();
-        $result = $this->dbContext->getDbc()::table('users')->where("e_mail", $email)->first();
-        $selectedUser->setId($result->ID);
-        $selectedUser->setEmail($result->e_mail);
-        return $selectedUser;
+        return $this->dbContext->getDbc()::table('users')->where('ID', $id)->delete();
     }
 
 }
