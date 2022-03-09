@@ -10,13 +10,6 @@ class DatabaseConnector
     public function __construct()
     {
         $this->dbc = new DBC();
-        $this->dbc->addConnection([
-            "driver" => _driver_,
-            "host" => _host_,
-            "database" => _database_,
-            "username" => _username_,
-            "password" => _password_
-        ]);
         $this->dbc->setAsGlobal();
         $this->dbc->bootEloquent();
     }
