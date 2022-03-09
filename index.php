@@ -1,5 +1,11 @@
 <?php
-//require_once("vendor/autoload.php");
+ini_set('error_reporting', E_ALL);
+ini_set( 'display_errors', 1 );
+require_once("vendor/autoload.php");
+$DBC=new DatabaseConnector();
+$connection=$DBC->getDbc();
+$users=$connection->table("users")->first();
+var_dump($users);
 ?>
 <!doctype html>
 
