@@ -10,7 +10,7 @@ class Routes
         switch ($request) {
             case '':
             case '/' :
-                require_once("./index.php");
+                require_once("./Views/home.php");
                 break;
             case '/login' :
                 require_once("./Views/login.php");
