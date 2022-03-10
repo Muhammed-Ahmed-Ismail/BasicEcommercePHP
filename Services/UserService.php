@@ -16,7 +16,7 @@ class UserService
         return $this->dbContext->getDbc()::table("users")->select("e_mail")->get();
     }
 
-    private function getUserById($id)
+    public function getUserById($id)
     {
         return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail")->get()->first();
     }

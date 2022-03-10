@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b61ee56d-7406-4452-84d3-b2e7f190bf7c" name="Changes" comment="" />
+    <list default="true" id="b61ee56d-7406-4452-84d3-b2e7f190bf7c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Services/DownloadValidation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/OrderServices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/UserService.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +66,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/conditionable" />
     </include_path>
   </component>
   <component name="ProjectId" id="264Q8eu1zsTU4vsEieaLsdfrGx2" />
