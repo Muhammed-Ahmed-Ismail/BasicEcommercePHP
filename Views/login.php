@@ -1,5 +1,6 @@
 <?php
 //print_r($_SERVER);
+print_r($_SESSION);
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
 {
     header("Location:/profile");
