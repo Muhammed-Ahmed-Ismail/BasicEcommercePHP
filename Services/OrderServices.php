@@ -59,4 +59,14 @@ class OrderServices{
     function deleteOrder(int $id): int{
         return $this->connection->table("orders")->where('order_id', '=', $id)->first()->delete();
     }
+    /**
+              * Adds order record to the database and returns the id of the order.
+              * @return int
+              */
+
+             public function addOrder(int $uid,int $pid) :int {
+                $orderDate=date("Y-m-d");
+                return $this->connection->table("orders")->insertGetId(["order_date"=>$orderDate,"ID"=>$uid,"product_id"=>$pid]);
+
+             }
 }
