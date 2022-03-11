@@ -61,6 +61,7 @@ class OrderServices{
         return $this->connection->table("orders")->where('order_id', '=', $id)->first()->delete();
     }
 
+
     /**
      * Adds order record to the database and returns the id of the order.
      * @return int
@@ -72,4 +73,6 @@ class OrderServices{
 
     }
 
+    
 }
+
