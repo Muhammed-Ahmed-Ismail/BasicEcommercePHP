@@ -21,9 +21,8 @@ class UserService
         return $this->dbContext->getDbc()::table("users")->select("e_mail")->get();
     }
 
-<<<<<<< HEAD
-    public function getUserById($id)
-=======
+
+
 
     /**
      * get user by id
@@ -31,10 +30,10 @@ class UserService
      * @param int $id
      * @return stdClass|null
      */
-    private function getUserById(int $id): ?stdClass
->>>>>>> Dev
+    public function getUserById(int $id): ?stdClass
+
     {
-        return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail")->first();
+        return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail","user_password")->first();
     }
 
     /**
@@ -60,9 +59,9 @@ class UserService
     {
         $selectedUser = $this->getUserByEmail($email);
         $isInserted = false;
-
+        $hashedPassword=sha1($password);
         if (is_null($selectedUser)) {
-            $newUser = ["e_mail" => $email, "password" => $password];
+            $newUser = ["e_mail" => $email, "user_password" => $hashedPassword];
             $this->dbContext->getDbc()::table('users')->insert($newUser);
             $isInserted = true;
         }
