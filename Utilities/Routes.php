@@ -18,6 +18,9 @@ class Routes
             case '/profile' :
                 require_once("./Views/profile.php");
                 break;
+            case '/download':
+                require_once ("./Views/downloadpage.php");
+                break;
             default:
                 http_response_code(404);
                 require_once("./Views/404.php");

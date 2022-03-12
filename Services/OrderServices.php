@@ -22,7 +22,7 @@ class OrderServices{
 
     function getOrderById($orderID): ?stdClass{
         if (is_numeric($orderID) && $orderID > 0) {
-            return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["download_count", "product_id"])->first();
+            return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["downloads_count", "product_id","ID"])->first();
         } else {
             return null;
         }

@@ -11,9 +11,10 @@ if(isset($_POST["login"]))
     $visitorEmail=$_POST["email"];
     $visitorPassword=$_POST["password"];
     $authUser=$userService->is_authUser(trim($visitorEmail),trim($visitorPassword));
-    if($authUser)
+    if($authUser!=0)
     {
         $_SESSION["loggedin"]=true;
+        $_SESSION["user_id"]=$authUser;
         header("Location:/profile");
     }
 }

@@ -44,7 +44,7 @@ class UserService
      */
     private function getUserByEmail(string $email): ?stdClass
     {
-        return $this->dbContext->getDbc()::table('users')->where("e_mail", $email)->select("e_mail","user_password")->first();
+        return $this->dbContext->getDbc()::table('users')->where("e_mail", $email)->select("e_mail","user_password","ID")->first();
     }
 
     /**
@@ -95,29 +95,28 @@ class UserService
         return $this->dbContext->getDbc()::table('users')->where('ID', $id)->delete();
     }
     /**
-     * update user data
+     * is_auth
      * return affected rows number
      *
      * @param string $email
      * @param string $password
-     * @return boolean
+     * @return int | null
      */
-    public function is_authUser(string $email,string $password) : bool
+    public function is_authUser(string $email,string $password) : int
     {
         $userinfo=$this->getUserByEmail($email);
-        var_dump($userinfo);
         if(is_null($userinfo))
         {
-                return false;
+                return 0;
         }else{
             $regPassword=$userinfo->user_password;
             $hashedPassword=sha1($password);
             if(strcmp($regPassword,$hashedPassword)!=0)
             {
-                return false;
+                return 0;
             }else
             {
-                return true;
+                return $userinfo->ID;
             }
         }
 
