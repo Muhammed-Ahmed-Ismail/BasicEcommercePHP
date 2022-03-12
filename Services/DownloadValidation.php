@@ -6,6 +6,7 @@ class DownloadValidation{
     function isValid($user_id, $product_id, $order_id) : bool { //still need to check for the 7 times download
         $OS = new OrderServices();
         $download_times = $OS->getDownloadTimes($order_id);
+        $download_times = $download_times->download_count;
         $PS = new ProductServices();
         $US = new UserService();
         $err = "";
