@@ -23,6 +23,9 @@ class FileUploader
     }
 
 
+    /**
+     * Upload selected file from client to server and add it to Static/upload directory
+     */
     public static function uploadSelectedFile()
     {
         $file = $_FILES['selectedFile'];
