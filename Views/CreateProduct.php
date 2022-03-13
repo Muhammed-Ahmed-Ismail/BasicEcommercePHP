@@ -7,8 +7,6 @@ if (isset($_POST["submit"])) {
 
     if (isset($_FILES['selectedFile'])) {
         FileUploader::uploadSelectedFile();
-        var_dump(FileUploader::getFilePath());
-        var_dump(FileUploader::getFileName());
         $productsService->uploadFileToS3Bucket(FileUploader::getFileName(), FileUploader::getFilePath());
     }
 }

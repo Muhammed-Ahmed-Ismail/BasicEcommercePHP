@@ -61,7 +61,9 @@ class ProductServices
      */
     function updateAnyProduct($productID, $url, $filename): int
     {
-        return $this->connection->table("products")->where('product_id', $productID)->update(["download_file_link" => $url, "file_name" => $filename]);
+        return $this->connection->table("products")
+            ->where('product_id', $productID)
+            ->update(["download_file_link" => $url, "file_name" => $filename]);
     }
 
 
@@ -85,11 +87,12 @@ class ProductServices
      */
     function deleteProduct(int $id): int
     {
-        return $this->connection->table("products")->where('product_id', '=', $id)->first()->delete();
+        return $this->connection->table("products")
+            ->where('product_id', '=', $id)->first()->delete();
 
     }
 
-    public function uploadFileToS3Bucket($fileName, $filePath)
+    public function uploadFileToS3Bucket($filePath)
     {
         try {
             $this->s3->putObject([
@@ -106,6 +109,29 @@ class ProductServices
             var_dump($e->getMessage());
             die("Something wrong happened while uploading file to s3 bucket");
         }
+
+    }
+
+    public function listingUploadedFiles(): Iterator
+    {
+        return $this->s3->getIterator('ListObjects', [
+            'Bucket' => S3_CREDENTIALS['bucket']],
+        );
+    }
+
+    public function getObjectDownloadLink(): string
+    {
+//        return $this->
+//        s3->getObjectUrl(S3_CREDENTIALS['bucket'],
+//            $this->listingUploadedFiles()->current()['Key']);
+        $cmd = $this->s3->getCommand('GetObject', [
+            'Bucket' => S3_CREDENTIALS["bucket"],
+            'Key' => S3_CREDENTIALS["credentials"]["key"]
+        ]);
+        $request = $this->s3->createPresignedRequest($cmd, '+1 minutes');
+
+        // Get the actual presigned-url
+        return (string)$request->getUri();
 
     }
 }
