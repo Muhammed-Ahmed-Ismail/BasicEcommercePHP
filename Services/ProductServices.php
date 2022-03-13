@@ -1,17 +1,28 @@
 <?php
-
-
 require_once("vendor/autoload.php");
+
+use Aws\S3\S3Client;
+
 
 class ProductServices
 {
-    private  $DBC;
-    private  $connection;
+    private $DBC;
+    private $connection;
+    private $s3;
+
+    /**
+     * @return S3Client
+     */
+    public function getS3(): S3Client
+    {
+        return $this->s3;
+    }
 
     public function __construct()
     {
         $this->DBC = new DatabaseConnector();
         $this->connection = $this->DBC->getDbc();
+        $this->s3 = new S3Client(S3_CREDENTIALS);
     }
 
 // return all products
@@ -48,11 +59,12 @@ class ProductServices
      */
     function updateAnyProduct($productID, $url, $filename): int
     {
-       return $this->connection->table("products")->where('product_id', $productID)->update(["download_file_link" => $url, "file_name" => $filename]);
+        return $this->connection->table("products")->where('product_id', $productID)->update(["download_file_link" => $url, "file_name" => $filename]);
     }
 
 
     // insert products  : for future plans
+
     /**
      * Add new product to database
      * @param String $x
@@ -74,7 +86,4 @@ class ProductServices
         return $this->connection->table("products")->where('product_id', '=', $id)->first()->delete();
 
     }
-
-
-
 }
