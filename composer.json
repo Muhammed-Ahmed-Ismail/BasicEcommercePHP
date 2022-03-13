@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "illuminate/database": "*"
+    "illuminate/database": "*",
+    "aws/aws-sdk-php": "3.212.7"
   },
   "autoload": {
     "classmap": [

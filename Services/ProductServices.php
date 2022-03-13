@@ -74,4 +74,7 @@ class ProductServices
         return $this->connection->table("products")->where('product_id', '=', $id)->first()->delete();
 
     }
+
+
+
 }
