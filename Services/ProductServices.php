@@ -100,7 +100,7 @@ class ProductServices
             ]);
 
             // Remove the file
-//            unlink($filePath);
+            unlink($filePath);
 
         } catch (S3Exception $e) {
             var_dump($e->getMessage());
