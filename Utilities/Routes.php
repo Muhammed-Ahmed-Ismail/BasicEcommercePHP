@@ -19,7 +19,7 @@ class Routes
                 require_once("./Views/profile.php");
                 break;
             case '/create-product':
-                require_once("./Views/CreateProduct.php");
+                require("./Views/CreateProduct.php");
                 break;
             default:
                 http_response_code(404);

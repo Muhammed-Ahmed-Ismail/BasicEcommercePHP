@@ -8,9 +8,11 @@ const CONNECTION_STRING = [
 ];
 
 const S3_CREDENTIALS = [
-    'key' => 'AKIA5AQE7L2FEEEWVG5V',
-    'secret' => '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',
-    'bucket' => 'php-project-iti-os-42',
     'version' => 'latest',
-    'region' => 'eu-west-1'
+    'region' => 'eu-west-1',
+    'credentials' => [
+        'key' => 'AKIA5AQE7L2FEEEWVG5V',
+        'secret' => '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',
+    ],
+    'bucket' => 'php-project-iti-os-42',
 ];

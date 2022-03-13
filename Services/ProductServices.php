@@ -1,6 +1,7 @@
 <?php
 require_once("vendor/autoload.php");
 
+use Aws\S3\Exception\S3Exception;
 use Aws\S3\S3Client;
 
 
@@ -8,7 +9,8 @@ class ProductServices
 {
     private $DBC;
     private $connection;
-    private $s3;
+    private S3Client $s3;
+    public static $testCounter = 0;
 
     /**
      * @return S3Client
@@ -84,6 +86,26 @@ class ProductServices
     function deleteProduct(int $id): int
     {
         return $this->connection->table("products")->where('product_id', '=', $id)->first()->delete();
+
+    }
+
+    public function uploadFileToS3Bucket($fileName, $filePath)
+    {
+        try {
+            $this->s3->putObject([
+                'Bucket' => S3_CREDENTIALS['bucket'],
+                'Key' => S3_CREDENTIALS['credentials']["key"],
+                'Body' => fopen($filePath, 'rb'),
+                'ACL' => 'public-read'
+            ]);
+
+            // Remove the file
+//            unlink($filePath);
+
+        } catch (S3Exception $e) {
+            var_dump($e->getMessage());
+            die("Something wrong happened while uploading file to s3 bucket");
+        }
 
     }
 }
