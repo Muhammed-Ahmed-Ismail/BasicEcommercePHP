@@ -5,8 +5,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
 ?>
 
 <h1>Hello from profile page</h1>
-<<<<<<< HEAD
-    <a href="Views/downloadpage.php?id=8">download</a>
+    <form action="">
+        <input type="submit">
+    </form>
 
 <?php }
 else{

@@ -21,8 +21,8 @@ if($orderInfo->ID!=$user_id )
         $count=$orderInfo->downloads_count;
         echo "<h3> you downloaded $count times </h3>";
         $orderservice->updateAnyProduct(1,$_GET["id"],$count+1);
-        header("Content-Disposition: attachment; filename=Download_resources/product.txt");
-
+        $fileName=$orderInfo->custom_sl;
+        header("Content-Disposition: attachment; filename=Download_resources/$fileName");
     }
     else
     {

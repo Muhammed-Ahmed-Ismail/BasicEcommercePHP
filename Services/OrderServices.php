@@ -1,7 +1,7 @@
 <?php
 
 
-require_once ("../vendor/autoload.php");
+require_once ("vendor/autoload.php");
 
 use Illuminate\Support\Collection;
 
@@ -22,7 +22,7 @@ class OrderServices{
 
     function getOrderById($orderID): ?stdClass{
         if (is_numeric($orderID) && $orderID > 0) {
-            return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["downloads_count", "product_id","ID"])->first();
+            return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["downloads_count", "product_id","ID","custom_sl"])->first();
         } else {
             return null;
         }
@@ -49,6 +49,11 @@ class OrderServices{
      * @return int
      */
     function updateAnyProduct($productID, $OrderID, $count): int{
+        if($count==6)
+        {
+            $linkName=$this->connection->table("orders")->where('order_id', $OrderID)->select(["custom_sl"])->first();
+            $this->deleteCustomsl($linkName);
+        }
         return $this->connection->table("orders")->where('product_id', $productID)->where('order_id', $OrderID)->update(["downloads_count" => $count]);
     }
 
@@ -69,10 +74,23 @@ class OrderServices{
 
     public function addOrder(int $uid,int $pid) :int {
         $orderDate=date("Y-m-d");
-        return $this->connection->table("orders")->insertGetId(["order_date"=>$orderDate,"ID"=>$uid,"product_id"=>$pid]);
+        $orderId= $this->connection->table("orders")->insertGetId(["order_date"=>$orderDate,"ID"=>$uid,"product_id"=>$pid]);
+        $linkname="../Download_resources/"."$orderId"."$orderDate";
+        $this->createCustomSl($linkname);
+        $this->connection->table("orders")->where('order_id',$orderId)->update(["custom_sl" => $linkname]);
+        return $orderId;
 
     }
+    private function createCustomSl(string $linkName)
+    {
 
+        symlink("product.txt","Download_resources/$linkName");
+    }
+    private function deleteCustomsl(string $linkname)
+    {
+        unlink($linkname);
+
+    }
     
 }
 
