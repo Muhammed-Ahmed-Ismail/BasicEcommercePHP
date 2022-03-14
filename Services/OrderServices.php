@@ -35,6 +35,7 @@ class OrderServices{
      */
     function getDownloadTimes($id): ?stdClass{
         if (is_numeric($id) && $id > 0) {
+
             return $this->connection->table("orders")->where("order_id", "=", "$id")->select(["downloads_count"])->first();
         } else {
             return null;
@@ -49,12 +50,23 @@ class OrderServices{
      * @return int
      */
     function updateAnyProduct($productID, $OrderID, $count): int{
-        if($count==6)
+        if($count>=7)
         {
-            $linkName=$this->connection->table("orders")->where('order_id', $OrderID)->select(["custom_sl"])->first();
-            $this->deleteCustomsl($linkName);
+            $orderLink=$this->connection->table("orders")->where('order_id', $OrderID)->select(["custom_sl"])->first();
+            $this->deleteOrder($OrderID);
+            $this->deleteCustomsl($orderLink->custom_sl);
         }
         return $this->connection->table("orders")->where('product_id', $productID)->where('order_id', $OrderID)->update(["downloads_count" => $count]);
+    }
+
+    /**
+     * @param int $userId
+     * @return void
+     */
+    public function getActiveOrder(int $userId) :? stdClass
+    {
+        return $this->connection->table("orders")->where("ID", "=", "$userId")->first();
+
     }
 
     /**
@@ -63,7 +75,7 @@ class OrderServices{
      * @return int
      */
     function deleteOrder(int $id): int{
-        return $this->connection->table("orders")->where('order_id', '=', $id)->first()->delete();
+        return $this->connection->table("orders")->where('order_id', '=', $id)->delete();
     }
 
 
@@ -75,17 +87,28 @@ class OrderServices{
     public function addOrder(int $uid,int $pid) :int {
         $orderDate=date("Y-m-d");
         $orderId= $this->connection->table("orders")->insertGetId(["order_date"=>$orderDate,"ID"=>$uid,"product_id"=>$pid]);
-        $linkname="../Download_resources/"."$orderId"."$orderDate";
+        $linkname="Download_resources/"."$orderId"."$orderDate";
         $this->createCustomSl($linkname);
         $this->connection->table("orders")->where('order_id',$orderId)->update(["custom_sl" => $linkname]);
         return $orderId;
 
     }
+
+    /**
+     * creates a soft link to the product file.
+     * @param string $linkName
+     * @return void
+     */
     private function createCustomSl(string $linkName)
     {
 
-        symlink("product.txt","Download_resources/$linkName");
+        symlink("product.zip","$linkName");
     }
+
+    /**
+     * @param string $linkname
+     * @return void
+     */
     private function deleteCustomsl(string $linkname)
     {
         unlink($linkname);
