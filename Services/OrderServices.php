@@ -7,18 +7,28 @@ use Illuminate\Support\Collection;
 class OrderServices{
     private $DBC;
     private $connection;
-    //private $downloads_count;
 
+    /**
+     * Constructor
+     */
     public function __construct(){
-        //$this->downloads_count = 0;
          $this->DBC = new DatabaseConnector();
          $this->connection = $this->DBC->getDbc();
     }
 
+    /**
+     * Get all orders
+     * @return Collection
+     */
     function getOrders(): Collection{
         return $this->connection->table("orders")->get();
     }
 
+    /**
+     * Get download count and product id
+     * @param $orderID
+     * @return stdClass|null
+     */
     function getOrderById($orderID): ?stdClass{
         if (is_numeric($orderID) && $orderID > 0) {
             return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["download_count", "product_id"])->first();
@@ -59,14 +69,15 @@ class OrderServices{
     function deleteOrder(int $id): int{
         return $this->connection->table("orders")->where('order_id', '=', $id)->first()->delete();
     }
+
     /**
-              * Adds order record to the database and returns the id of the order.
-              * @return int
-              */
+     * @param int $uid
+     * @param int $pid
+     * @return int
+     */
+     public function addOrder(int $uid,int $pid) :int {
+        $orderDate=date("Y-m-d");
+        return $this->connection->table("orders")->insertGetId(["order_date"=>$orderDate,"ID"=>$uid,"product_id"=>$pid]);
 
-             public function addOrder(int $uid,int $pid) :int {
-                $orderDate=date("Y-m-d");
-                return $this->connection->table("orders")->insertGetId(["order_date"=>$orderDate,"ID"=>$uid,"product_id"=>$pid]);
-
-             }
+     }
 }
