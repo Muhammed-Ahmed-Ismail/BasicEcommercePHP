@@ -1,0 +1,30 @@
+github token = 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
+-------------------------------
+Changed from symbolic link
+changed from origin file
+to open files 
+xdg-open filename
+gio open filename
+--------------------------
+exectract zip files 
+unzip filename
+----------------------
+get disk space info 
+df -h
+----------------------
+get disk space occupied by a file or directory 
+du -h
+---------------------------------
+to convert man page to postScript
+man -t ls > ls.ps
+
+to view a postScript file and print it
+evince-previewer ls.ps
+or 
+evince -w ls.ps 
+or 
+evince --preview ls.ps
+--------------------------------------
+to open postScript file as pdf 
+evince ls.ps
+-------------------------------------

@@ -10,6 +10,7 @@
     }
   ],
   "require": {
+    "aws/aws-sdk-php": "3.212.7",
     "illuminate/database": "*",
     "chillerlan/php-qrcode": "^4.3"
   },

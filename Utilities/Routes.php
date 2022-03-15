@@ -18,6 +18,12 @@ class Routes
             case '/profile' :
                 require_once("./Views/profile.php");
                 break;
+            case '/create-product':
+                require_once("./Views/CreateProduct.php");
+                break;
+            case '/download-s3':
+                require_once("./Views/download.php");
+                break;
             case '/download':
                 require_once ("./Views/downloadpage.php");
                 break;

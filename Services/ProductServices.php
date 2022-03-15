@@ -1,20 +1,32 @@
 <?php
 
 
-require_once("../vendor/autoload.php");
+require_once("vendor/autoload.php");
+
+use Aws\S3\Exception\S3Exception;
+use Aws\S3\S3Client;
+use Illuminate\Database\Capsule\Manager;
+use Illuminate\Support\Collection;
+
 
 class ProductServices
 {
-    private  $DBC;
-    private  $connection;
+    private DatabaseConnector $DBC;
+    private Manager $connection;
+    private S3Client $s3;
+
 
     public function __construct()
     {
         $this->DBC = new DatabaseConnector();
         $this->connection = $this->DBC->getDbc();
+        $this->s3 = new S3Client(S3_CREDENTIALS);
     }
 
-// return all products
+    public function getS3(): S3Client
+    {
+        return $this->s3;
+    }
 
     /**
      * Get All Items in Table
@@ -30,9 +42,9 @@ class ProductServices
      * @param int $id
      * @return stdClass|null
      */
-    function getProductById($id): ?stdClass
+    function getProductById(int $id): ?stdClass
     {
-        if (is_numeric($id) && $id > 0) {
+        if ($id > 0) {
             return $this->connection->table("products")->where("product_id", "=", "$id")->select(["download_file_link", "file_name"])->first();
         } else {
             return null;
@@ -48,7 +60,9 @@ class ProductServices
      */
     function updateAnyProduct($productID, $url, $filename): int
     {
-       return $this->connection->table("products")->where('product_id', $productID)->update(["download_file_link" => $url, "file_name" => $filename]);
+        return $this->connection->table("products")
+            ->where('product_id', $productID)
+            ->update(["download_file_link" => $url, "file_name" => $filename]);
     }
 
 
@@ -71,7 +85,57 @@ class ProductServices
      */
     function deleteProduct(int $id): int
     {
-        return $this->connection->table("products")->where('product_id', '=', $id)->first()->delete();
+        return $this->connection->table("products")
+            ->where('product_id', '=', $id)->first()->delete();
 
+    }
+
+    /**
+     * Upload selected file to s3 bucket and remove selected file from the local server
+     * @param $filePath
+     */
+    public function uploadFileToS3Bucket($filePath)
+    {
+        try {
+            $this->s3->putObject([
+                'Bucket' => S3_CREDENTIALS['bucket'],
+                'Key' => S3_CREDENTIALS['credentials']["key"],
+                'Body' => fopen($filePath, 'rb'),
+                'ACL' => 'public-read'
+            ]);
+
+            // Remove the file
+            unlink($filePath);
+
+        } catch (S3Exception $e) {
+            var_dump($e->getMessage());
+            die("Something wrong happened while uploading file to s3 bucket");
+        }
+
+    }
+
+    /**
+     * Return Iterator of available objects in the selected s3 bucket
+     */
+    public function listingUploadedFiles(): Iterator
+    {
+        return $this->s3->getIterator('ListObjects', [
+            'Bucket' => S3_CREDENTIALS['bucket']],
+        );
+    }
+
+    /**
+     * Return pre-signed download link expires after 1 minutes
+     * @return string
+     */
+    public function getObjectDownloadLink(): string
+    {
+        $cmd = $this->s3->getCommand('GetObject', [
+            'Bucket' => S3_CREDENTIALS["bucket"],
+            'Key' => S3_CREDENTIALS["credentials"]["key"]
+        ]);
+        $request = $this->s3->createPresignedRequest($cmd, '+1 minutes');
+
+        return (string)$request->getUri();
     }
 }
