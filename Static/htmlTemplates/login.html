@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <header>
+        <div class="top-bar flex justify-center">
+            <div class="top-bar-container">
+                <ul class="flex align-center">
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+     <form method="post" action="">
+    <div class="flex body-container align-center">
+        <div>
+            <h1>Please login</h1>
+        </div>
+        <div class="login">
+            <input class="input-fields" id="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" 
+                placeholder="Enter email" name="email" required >
+            <input type="password" id="password" class="input-fields" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                placeholder="Enter Password" name="psw" required>
+            <button class="button" onclick="validate()">Login</button>
+            <div id="validator-text">login success</div>
+            <input type="checkbox" id="rememberMe">
+            <label for="rememberMe">Remember me</label>
+
+            <!-- password validation -->
+            <div id="message">
+                <h6>Password must contain the following:</h6>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="len" class="invalid">Minimum <b>8 characters</b></p>
+            </div>
+
+        </div>
+    </div>
+     </form>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

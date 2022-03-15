@@ -1,0 +1,159 @@
+* {
+    font-family: 'Raleway';
+}
+
+/* helper classes */
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-left {
+    justify-content: left;
+}
+
+.align-center {
+    align-items: center;
+}
+
+a, a:focus, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* header */
+.top-bar {
+    background: #333;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.top-bar ul {
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.top-bar ul li {
+    margin: 0 10px;
+}
+
+.top-bar ul li:last-of-type {
+    margin-right: 0;
+}
+
+.top-bar-container {
+    width: 80%;
+    margin: auto;
+}
+
+header {
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+/* body container*/
+.body-container {
+    width: 80%;
+    transform: translate(10%, 10%);
+}
+
+/* login box container */
+.login {
+    width: 400px;
+    height: relative;
+    margin: 35px auto;
+    position: relative;
+    background-color: #fff;
+    border: 2px grey solid;
+    border-radius: 10px;
+}
+
+/* email and password share the same style */
+.input-fields {
+    width: 95%;
+    padding: 12px 20px;
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+/* login button */
+.button {
+    color: white;
+    background-color: #04AA6D;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    width: 95%;
+    border-radius: 25px;
+}
+
+/* div to show errors */
+#validator-text {
+    padding: 20px;
+    display: none;
+}
+
+/* login button hover */
+.button:hover {
+    opacity: 0.8;
+}
+
+/* password validation */
+#message {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+/* password validation text checkers */
+#message p {
+    padding: 10px 35px;
+    font-size: 12px;
+}
+
+/* if the condition is met */
+.valid {
+    color: green;
+}
+
+/* add check mark before */
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "\2713";
+}
+
+/* if the condition is not met */
+.invalid {
+    color: red;
+}
+
+/* add x mark before */
+.invalid::before {
+    position: relative;
+    left: -35px;
+    content: "x";
+}
+
+/* remember me check box */
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+    display: inline-block;
+    margin: 10px 0px 10px 20px;
+}
