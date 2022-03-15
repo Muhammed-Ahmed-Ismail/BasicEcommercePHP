@@ -22,15 +22,18 @@ class UserService
     }
 
 
+
+
     /**
      * get user by id
      * return selected user or NULL
      * @param int $id
      * @return stdClass|null
      */
-    private function getUserById(int $id): ?stdClass
+    public function getUserById(int $id): ?stdClass
+
     {
-        return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail")->first();
+        return $this->dbContext->getDbc()::table('users')->where("ID", $id)->select("e_mail","user_password")->first();
     }
 
     /**
@@ -41,7 +44,7 @@ class UserService
      */
     private function getUserByEmail(string $email): ?stdClass
     {
-        return $this->dbContext->getDbc()::table('users')->where("e_mail", $email)->select("e_mail")->first();
+        return $this->dbContext->getDbc()::table('users')->where("e_mail", $email)->select("e_mail","user_password","ID")->first();
     }
 
     /**
@@ -56,9 +59,9 @@ class UserService
     {
         $selectedUser = $this->getUserByEmail($email);
         $isInserted = false;
-
+        $hashedPassword=sha1($password);
         if (is_null($selectedUser)) {
-            $newUser = ["e_mail" => $email, "password" => $password];
+            $newUser = ["e_mail" => $email, "user_password" => $hashedPassword];
             $this->dbContext->getDbc()::table('users')->insert($newUser);
             $isInserted = true;
         }
@@ -91,5 +94,34 @@ class UserService
     {
         return $this->dbContext->getDbc()::table('users')->where('ID', $id)->delete();
     }
+    /**
+     * is_auth
+     * return affected rows number
+     *
+     * @param string $email
+     * @param string $password
+     * @return int | null
+     */
+    public function is_authUser(string $email,string $password) : int
+    {
+        $userinfo=$this->getUserByEmail($email);
+        if(is_null($userinfo))
+        {
+                return 0;
+        }else{
+            $regPassword=$userinfo->user_password;
+            $hashedPassword=sha1($password);
+            if(strcmp($regPassword,$hashedPassword)!=0)
+            {
+                return 0;
+            }else
+            {
+                return $userinfo->ID;
+            }
+        }
 
+    }
+
+    // remember me 
+    // generate token 
 }

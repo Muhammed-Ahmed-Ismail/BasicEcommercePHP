@@ -1,4 +1,6 @@
 <?php
+
+
 require_once("vendor/autoload.php");
 
 use Aws\S3\Exception\S3Exception;
@@ -63,6 +65,8 @@ class ProductServices
             ->update(["download_file_link" => $url, "file_name" => $filename]);
     }
 
+
+    // insert products  : for future plans
     /**
      * Add new product to database
      * @param String $x
