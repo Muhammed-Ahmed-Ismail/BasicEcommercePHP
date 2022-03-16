@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../vendor/autoload.php");
+
 
 use Illuminate\Support\Collection;
 
@@ -32,6 +32,14 @@ class OrderServices{
     function getOrderById($orderID): ?stdClass{
         if (is_numeric($orderID) && $orderID > 0) {
             return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["download_count", "product_id"])->first();
+        } else {
+            return null;
+        }
+    }
+
+    function getOrderByUserId($userID): ?stdClass{
+        if (is_numeric($userID) && $userID > 0) {
+            return $this->connection->table("orders")->where("ID", "=", "$userID ")->select(["download_count", "product_id"])->first();
         } else {
             return null;
         }

@@ -2,9 +2,6 @@
 if (isset($_POST["submit"])) {
     $productsService = new ProductServices();
 
-    echo "<h2> Counter = " . ++ProductServices::$testCounter . "</h2>";
-
-
     if (isset($_FILES['selectedFile'])) {
         FileUploader::uploadSelectedFile();
         $productsService->uploadFileToS3Bucket(FileUploader::getFileName(), FileUploader::getFilePath());

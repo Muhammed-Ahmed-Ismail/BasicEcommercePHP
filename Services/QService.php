@@ -8,7 +8,7 @@
  * pass your desired link to makeQR function: $qrcode = $qrcode->makeQR($link);
  */
 
-require_once "vendor/autoload.php";
+
 
 use chillerlan\QRCode\QRCode as QR;
 use chillerlan\QRCode\QROptions as options1;

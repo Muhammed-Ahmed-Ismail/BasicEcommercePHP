@@ -11,8 +11,8 @@ const S3_CREDENTIALS = [
     'version' => 'latest',
     'region' => 'eu-west-1',
     'credentials' => [
-        'key' => '*******',
-        'secret' => '********',
+        'key' => '',
+        'secret' => '',
     ],
     'bucket' => 'php-project-iti-os-42',
 ];

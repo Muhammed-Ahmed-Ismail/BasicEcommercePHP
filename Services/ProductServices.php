@@ -1,7 +1,7 @@
 <?php
 
 
-require_once("vendor/autoload.php");
+
 
 use Aws\S3\Exception\S3Exception;
 use Aws\S3\S3Client;
@@ -94,7 +94,7 @@ class ProductServices
      * Upload selected file to s3 bucket and remove selected file from the local server
      * @param $filePath
      */
-    public function uploadFileToS3Bucket($filePath)
+    public function uploadFileToS3Bucket($fileName,$filePath)
     {
         try {
             $this->s3->putObject([
@@ -134,7 +134,7 @@ class ProductServices
             'Bucket' => S3_CREDENTIALS["bucket"],
             'Key' => S3_CREDENTIALS["credentials"]["key"]
         ]);
-        $request = $this->s3->createPresignedRequest($cmd, '+1 minutes');
+        $request = $this->s3->createPresignedRequest($cmd, '+10 seconds');
 
         return (string)$request->getUri();
     }
