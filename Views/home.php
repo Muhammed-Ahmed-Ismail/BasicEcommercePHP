@@ -114,7 +114,8 @@ if (isset($_POST["submit"])) {
                                 <?php
                                
                                 if ($EmailValidateResult["isValid"] == false) {
-                                    echo $EmailValidateResult["message"];
+                                    echo "<span style ='color:red;'>".$EmailValidateResult["message"]."</span>" ;
+
                                 } 
                                 ?>
 
@@ -123,7 +124,7 @@ if (isset($_POST["submit"])) {
                                 <input class="contactus" placeholder="Password" type="password" name="password">
                                 <?php
                                 if ($passwordValidateResult["isValid"] == false) {
-                                    echo $passwordValidateResult["message"];
+                                    echo "<span style ='color:red;'>".$passwordValidateResult["message"]."</span>" ;
                                 } 
                                 ?>
                             </div>
@@ -135,7 +136,7 @@ if (isset($_POST["submit"])) {
                                 <input class="contactus" placeholder="credit card" type="password" name="credit card">
                                 <?php
                                 if ($creditCardValidateResult["isValid"] = false) {
-                                    echo $creditCardValidateResult["message"];
+                                    echo "<span style ='color:red;'>".$creditCardValidateResult["message"]."</span>" ;
                                 } 
                                 ?>
                             </div>
@@ -143,7 +144,7 @@ if (isset($_POST["submit"])) {
                                 <input class="contactus" placeholder="cvv" type="number" name="cvv">
                                 <?php
                                 if ($CvvValidateResult["isValid"] = false) {
-                                    echo $CvvValidateResult["message"];
+                                    echo "<span style ='color:red;'>".$CvvValidateResult["message"]."</span>" ;
                                 } 
                                 ?>
                             </div>
