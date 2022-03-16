@@ -134,8 +134,8 @@ if (isset($_POST["submit"])) {
                             <div class="col-md-12">
                                 <input class="contactus" placeholder="credit card" type="password" name="credit card">
                                 <?php
-                                if ($valid_credit["isValid"] = false) {
-                                    echo $valid_credit["message"];
+                                if ($creditCardValidateResult["isValid"] = false) {
+                                    echo $creditCardValidateResult["message"];
                                 } 
                                 ?>
                             </div>
