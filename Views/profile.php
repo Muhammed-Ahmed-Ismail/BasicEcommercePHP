@@ -88,44 +88,35 @@ else{
         </div>
     </div>
 </header>
-<div class="container">
-<table class="table">
-    <thead class="thead-light">
-    <tr>
-        <th>
-            Order number
-        </th>
-        <th>
-            Product name
-        </th>
-        <th>
-            Download count
-        </th>
-        <th>
-            Download page
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-        <?= $orderId ?>
-        </td>
-        <td>
-            Awesome product
-        </td>
-        <td>
-            <?= $downloadCount ?>
-        </td>
-        <td>
-            <button class="btn-link">
-            <a  href="<?= "/download"?>">Download Page</a>
-            </button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+
+<div class="food">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2><strong class="yellow">Software </strong>Packages</h2>
+                    <span>There are many variations of passages of Lorem Ipsum available, but the majorityomised words which don't look
+                     even slightly believable</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="food_box">
+                    <i><img src="../Static/images/softwarelogo.png" alt="#"/></i>
+                    <h4>Awesome Software</h4>
+                    <ul class="list-group-item border-primary">
+                        <li>Order number : <?= $orderId ?></li>
+                        <li>Downloads Count <?= $downloadCount ?></li>
+                        <li><a href="/download"> Download page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <footer>
         <div class="copyright">
             <div class="container">
