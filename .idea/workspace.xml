@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b61ee56d-7406-4452-84d3-b2e7f190bf7c" name="Changes" comment="Create get all users service">
-      <change beforePath="$PROJECT_DIR$/.idea/BasicEcommercePHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BasicEcommercePHP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/OrderServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/OrderServices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +119,7 @@
       <workItem from="1646767366048" duration="2153000" />
       <workItem from="1646824642883" duration="5627000" />
       <workItem from="1647189900103" duration="157000" />
+      <workItem from="1647418678262" duration="2164000" />
     </task>
     <servers />
   </component>

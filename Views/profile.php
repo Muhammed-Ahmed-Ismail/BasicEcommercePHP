@@ -4,7 +4,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
 {
     $downloadLink="/download";
     $orderService=new OrderServices();
-    $orderInfo=$orderService->getActiveOrder($_SESSION["user_id"]);
+    $orderInfo=$orderService->getOrderByUserId($_SESSION["user_id"]);
     $count=$orderInfo->downloads_count;
     $orderId=$orderInfo->order_id;
     $orderUserId=$orderInfo->ID;

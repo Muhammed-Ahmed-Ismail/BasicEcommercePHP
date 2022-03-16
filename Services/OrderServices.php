@@ -31,7 +31,7 @@ class OrderServices{
      */
     function getOrderById($orderID): ?stdClass{
         if (is_numeric($orderID) && $orderID > 0) {
-            return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["download_count", "product_id"])->first();
+            return $this->connection->table("orders")->where("order_id", "=", "$orderID")->select(["downloads_count", "product_id"])->first();
         } else {
             return null;
         }
@@ -39,7 +39,7 @@ class OrderServices{
 
     function getOrderByUserId($userID): ?stdClass{
         if (is_numeric($userID) && $userID > 0) {
-            return $this->connection->table("orders")->where("ID", "=", "$userID ")->select(["download_count", "product_id"])->first();
+            return $this->connection->table("orders")->where("ID", "=", "$userID ")->select(["downloads_count", "product_id"])->first();
         } else {
             return null;
         }
