@@ -27,6 +27,9 @@ class Routes
             case '/download':
                 require_once ("./Views/downloadpage.php");
                 break;
+                case '/downloadarea':
+                require_once ("./Views/downloadarea.php");
+                break;
             case  '/logout':
                  require_once ("./Views/logout.php");
                  break;
