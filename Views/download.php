@@ -128,9 +128,11 @@ $products = $productService->listingUploadedFiles();
                         <a style="width:120px; height:40px; color:#FFF;" class="btn btn-primary btn-download">
                             Our Server
                         </a>
-                        <a target="_blank" href="<?= $productService->getObjectDownloadLink() ?>"
+                        <a style="width:120px; height:40px; color:#FFF;" class="btn btn-primary btn-download"
+                           target="_blank"
+                           href="<?= $productService->getObjectDownloadLink() ?>"
                            download="
-            <?= $products->current()['Key'] ?>">Download</a>
+            <?= $products->current()['Key'] ?>">S3</a>
                     </section>
                 </div>
             </div>
