@@ -23,7 +23,7 @@ class SymLinkCreator{
      * @param string $fileName
      * @return string
      */
-    function symLink(string $pathToTheFile, string $fileName): string
+    function creatSymLink(string $pathToTheFile, string $fileName): string
     {
         $targetName = $pathToTheFile . $fileName;
         $linkName = $this->generateRandomString() . ".zip";

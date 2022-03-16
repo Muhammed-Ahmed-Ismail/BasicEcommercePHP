@@ -121,7 +121,4 @@ class UserService
         }
 
     }
-
-    // remember me 
-    // generate token 
 }
