@@ -16,6 +16,7 @@ if(isset($_POST["login"]))
     {
         $_SESSION["loggedin"]=true;
         $_SESSION["user_id"]=$authUser;
+        $_SESSION["user_name"]=$_POST["email"];
         header("Location:/profile");
     }
 }
