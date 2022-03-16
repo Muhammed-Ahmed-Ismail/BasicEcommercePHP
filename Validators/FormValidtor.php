@@ -1,6 +1,6 @@
 <?php
 
-class PaymentValidate
+class FormValidator
 {
 
 
@@ -46,7 +46,7 @@ class PaymentValidate
     function validate_cvv()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (empty($this->cvv)) {
+            if (empty($_POST["cvv"])) {
                 return ["isValid" => false, "message" => "wrong"];
             } else {
                 return ["isValid" => true];
