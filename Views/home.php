@@ -1,5 +1,5 @@
 <?php
- $obj = new PaymentValidate($_POST['email'], $_POST['password'], $_POST['confirm_Password'], $_Post['credit_card'], $_Post['cvv']);
+/* $obj = new PaymentValidate($_POST['email'], $_POST['password'], $_POST['confirm_Password'], $_Post['credit_card'], $_Post['cvv']);
  $obj->validate_email($email);
  $obj->validate_password($password);
  $obj->validate_credit($credit_card);
@@ -9,197 +9,349 @@
  $errorConfirmPassword = $obj->error_confirm_password;
  $errorCredit = $obj->error_credit_card;
  $errorCvv = $obj->error_cvv;
- 
+ */
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>payment</title>
-	<link rel="stylesheet" type="text/css" href="../Static/css/home-style.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  <link rel="icon" type="image/png" href="logo.gif"/>
-	<link rel="stylesheet" type="text/css" href="css/aos.css">
-<script type="text/javascript" src="js/aos.js"></script>
-  
-	<!-- bs code JS -->
-	<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<!--productsection-links-->
-        <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chewy">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>spicy</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="../Static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../Static/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../Static/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="../Static/images/fevicon.png" type="image/gif"/>
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../Static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+          media="screen">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
-<body>
-	 <header>
-     <nav class="navbar">
-  <span class="navbar-toggle" id="js-navbar-toggle">
-  <svg width="24" height="24" viewBox="0 0 24 24">
-  <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"></path>
-    </svg></span>
-  <a href="#" class="logo"><img  class="ai" src="logo.gif" width="75">
-    <h4 style="color: #007bff">shutterstock</h4>
-  </a>
-  <ul class="main-nav" id="js-menu">
-    <li><a href="#" class="nav-links">Home</a></li>
-    <li><a href="#" class="nav-links">About Us</a></li>
-    <li><a href="#" class="nav-links">mission</a></li>
-    <li><a href="#" class="nav-links">vision</a></li>
-    <li><a href="#" class="nav-links">Blog</a></li>
-    <li><a href="#" class="nav-links">Contact Us</a></li>
-  </ul>
-  <div name="search">
-  <label class="search-box">
-    <input type="text" />
-    <span></span>
-  </label> 
+<!-- body -->
+<body class="main-layout">
+<!-- loader  -->
+<div class="loader_bg">
+    <div class="loader"><img src="../Static/images/loading.gif" alt="#"/></div>
 </div>
-</nav>
-<script type="text/javascript">
-  let mainNav = document.getElementById('js-menu');
-let navBarToggle = document.getElementById('js-navbar-toggle');
-
-navBarToggle.addEventListener('click', function () {
-    
-    mainNav.classList.toggle('active');
-});
-</script>
-  </header>
-
-   <!--first section-->
-   <section id="block">
-    <div class="row">
-        <div class="col-12">
-           <div class="blck">
-                         <div class="container">
-                <span class="text1">Welcome To</span>
-                <span class="text2">our store</span>
-              </div>
-           </div>        
+<!-- end loader -->
+<!-- header -->
+<header>
+    <!-- header inner -->
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                    <div class="full">
+                        <div class="center-desk">
+                            <div class="logo">
+                                <a href="#"><img src="../Static/images/logo.png" alt="#"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Screenshort</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                            </ul>
+                            <div class="Call"><a href="#"> <span class="yellow">Call Us : </span>12345677890</a></div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
-  </section> 
-
-<div class="content">
-    <form method="$_POST" action="<?php echo $_SERVER["PHP_SELF"]?>" >
-        
-        <div>
-            <input type="email" id="f4" placeholder=" ">
-            <p class = "error"><?php echo $errorEmail;?></p>
-            <label for="f4">email</label>
+</header>
+<!-- end header inner -->
+<!-- end header -->
+<!-- banner -->
+<section class="banner_main">
+    <div class="container">
+        <div class="row d_flex">
+            <div class="col-md-6">
+                <div class="text-bg">
+                    <h1>Healthy Food Recipes</h1>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words
+                        which don't look even slightly believable</p>
+                    <a class="read_more" href="#">Read More</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form id="request" class="main_form">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <input class="contactus" placeholder="Name" type="type" name="Name">
+                        </div>
+                        <div class="col-md-12">
+                            <input class="contactus" placeholder=" Email" type="type" name="Email">
+                        </div>
+                        <div class="col-md-12">
+                            <input class="contactus" placeholder=" Phone Number" type="type" name="Phone Number">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea class="contactus" placeholder="Message" type="type"
+                                      Message="Name">Message </textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <button class="send_btn">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div>
-            <input type="password" id="f3" pattern="[A-Za-z0-9]{6,}" placeholder=" ">
-            <p class = "error"><?php echo $errorPassword;?></p>
-            <label for="f3">Password field</label>
-            
-        </div>
-        <div>
-            <input type="password" id="f3" pattern="[A-Za-z0-9]{6,}" placeholder=" ">
-            <p class = "error"><?php echo $errorConfirmPassword;?></p>
-            <label for="f3">confirm_Password field</label>
-        </div>
-
-        <div>
-            <input type="text" id="f5" pattern="[0-9]{13,16}" placeholder=" ">
-            <p class = "error"><?php echo $errorCredit;?></p>
-            <label for="f5">Credit Card</label>
-        </div>
-        <div>
-            <textarea id="f6" placeholder=" " required></textarea>
-            <p class = "error"><?php echo $errorCvv;?></p>
-            <label for="f6">cvv</label>
-        </div>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-</div>
-<!--footer-->
-<!-- FOOTER START -->
-<section id="end">
-<div class="footer">
-  <div class="contain">
-  <div class="col">
-    <h1>Company</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Products</h1>
-    <ul>
-      <li>Robots</li>
-      <li>AI system</li>
-      <li>Services</li>
-      <li>machine learn</li>
-      <li>Neurolink</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Accounts</h1>
-    <ul>
-      <li>About</li>
-      <li>Mission</li>
-      <li>Services</li>
-      <li>Social</li>
-      <li>Get in touch</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Resources</h1>
-    <ul>
-      <li>Webmail</li>
-      <li>Redeem code</li>
-      <li>WHOIS lookup</li>
-      <li>Site map</li>
-      <li>Web templates</li>
-      <li>Email templates</li>
-    </ul>
-  </div>
-  <div class="col">
-    <h1>Support</h1>
-    <ul>
-      <li>Contact us</li>
-      <li>Web chat</li>
-      <li>Open ticket</li>
-    </ul>
-  </div>
-  <div class="col social">
-    <h1>Social</h1>
-    <ul>
-      <li></li>
-      <li><img src="images/face.png" width="32" style="width: 32px;"></li>
-      <li><img src="images/in.png" width="32" style="width: 32px;"></li>
-    </ul>
-  </div>
-<div class="clearfix"></div>
-</div>
- 
-    <div class="copy_text">
-      <p>Copyright &copy; 2021</p>
-      
-    </div>
-   
-</div>
 </section>
-<!-- END OF FOOTER -->
+<!-- end banner -->
+<!-- food -->
+<div class="food">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2><strong class="yellow">Food </strong>Packages</h2>
+                    <span>There are many variations of passages of Lorem Ipsum available, but the majorityomised words which don't look
+                     even slightly believable</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="food_box">
+                    <i><img src="../Static/images/food1.png" alt="#"/></i>
+                    <h4>Homemade</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="food_box ">
+                    <i><img src="../Static/images/food2.png" alt="#"/></i>
+                    <h4>Noodles</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="food_box">
+                    <i><img src="../Static/images/food3.png" alt="#"/></i>
+                    <h4>Egg</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end food -->
+<!-- works -->
+<div class="works">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <span>How it works</span>
+                    <h2><strong class="yellow">3 Step For </strong>Healthy Eating</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div id="white_bg" class="works_box">
+                    <h4>01</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="white_bg" class="works_box ">
+                    <h4>02</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="white_bg" class="works_box">
+                    <h4>03</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end works -->
+<!-- clients -->
+<div class="clients">
+    <div class="container-fluid">
+        <div class="row d_flex">
+            <div class="col-md-7">
+                <div class="padding_lert">
+                    <div class="titlepage">
+                        <h2><strong class="yellow">Clients </strong>says</h2>
+                    </div>
+                    <div id="myCarousel" class="carousel slide clients_Carousel " data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="container">
+                                    <div class="carousel-caption ">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="imga">
+                                                    <figure><img src="../Static/images/client.png" alt="#"/></figure>
+                                                </div>
+                                                <div class="test_box">
+                                                    <h4>mark du</h4>
+                                                    <p>It is a long established fact that a reader will be distracted by
+                                                        the readable content of a page when looking at its layout. The
+                                                        point of using Lorem Ipsum is that it has a more-or-less normal
+                                                        distribution of letters,</p>
+                                                    <i><img src="../Static/images/toy_img.png" alt="#"/></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="imga">
+                                                    <figure><img src="../Static/images/client.png" alt="#"/></figure>
+                                                </div>
+                                                <div class="test_box">
+                                                    <h4>mark du</h4>
+                                                    <p>It is a long established fact that a reader will be distracted by
+                                                        the readable content of a page when looking at its layout. The
+                                                        point of using Lorem Ipsum is that it has a more-or-less normal
+                                                        distribution of letters,</p>
+                                                    <i><img src="../Static/images/toy_img.png" alt="#"/></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="imga">
+                                                    <figure><img src="../Static/images/client.png" alt="#"/></figure>
+                                                </div>
+                                                <div class="test_box">
+                                                    <h4>mark du</h4>
+                                                    <p>It is a long established fact that a reader will be distracted by
+                                                        the readable content of a page when looking at its layout. The
+                                                        point of using Lorem Ipsum is that it has a more-or-less normal
+                                                        distribution of letters,</p>
+                                                    <i><img src="../Static/images/toy_img.png" alt="#"/></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="clients_imgfood">
+                    <figure><img src="../Static/images/food4.png" alt="#"/></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end clients -->
+<!--  footer -->
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="cont">
+                        <h3> Free Multipurpose <br> Responsive Landing Page 2019</h3>
+                        <p>Modern lighting fast & easily Customizable</p>
+                    </div>
+                    <button class="sub_btn" href="#">Get A Quote</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html Templates</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+<!-- Javascript files-->
+<script src="../Static/js/jquery.min.js"></script>
+<script src="../Static/js/popper.min.js"></script>
+<script src="../Static/js/bootstrap.bundle.min.js"></script>
+<script src="../Static/js/jquery-3.0.0.min.js"></script>
+<!-- sidebar -->
+<script src="../Static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../Static/js/custom.js"></script>
+<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
 </html>
 
