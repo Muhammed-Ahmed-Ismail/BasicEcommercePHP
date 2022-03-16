@@ -1,6 +1,16 @@
 <?php
+/* $obj = new PaymentValidate($_POST['email'], $_POST['password'], $_POST['confirm_Password'], $_Post['credit_card'], $_Post['cvv']);
+ $obj->validate_email($email);
+ $obj->validate_password($password);
+ $obj->validate_credit($credit_card);
+ $obj->validate_cvv($cvv);
+ $errorEmail = $obj->erroremail;
+ $errorPassword = $obj->error_password;
+ $errorConfirmPassword = $obj->error_confirm_password;
+ $errorCredit = $obj->error_credit_card;
+ $errorCvv = $obj->error_cvv;
+ */
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
