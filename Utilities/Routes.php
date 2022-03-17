@@ -28,13 +28,13 @@ class Routes
             case '/download?local=1':
                 require_once ("./Views/downloadpage.php");
                 break;
-<<<<<<< HEAD
+
             case '/downloadarea':
                 require_once ("./Views/download.php");
-=======
+/*
                 case '/downloadarea':
-                require_once ("./Views/downloadarea.php");
->>>>>>> c6aaf9f50fa50c7b844fb4523ffaa44d78188e40
+                require_once ("./Views/downloadarea.php");*/
+
                 break;
             case  '/logout':
                  require_once ("./Views/logout.php");

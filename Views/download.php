@@ -1,6 +1,16 @@
 <?php
-$productService = new ProductServices();
-$products = $productService->listingUploadedFiles();
+if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
+    $productService = new ProductServices();
+    $orderService= new OrderServices();
+    $orderId=$_SESSION["order_id"];
+    $downloadsCountobj=$orderService->getDownloadTimes($orderId);
+   $downloadsCount=$downloadsCountobj->downloads_count;
+    $products = $productService->listingUploadedFiles();
+
+}else{
+    header("Location:/login");
+}
+
 ?>
 
 
@@ -120,7 +130,7 @@ $products = $productService->listingUploadedFiles();
                     <hr style="background: black"/>
                     <section>
                         <h2 style="color: #FFF">Downloads number</h2>
-                        <strong style="color: #FFF; font-size: large">4</strong>
+                        <strong style="color: #FFF; font-size: large"><?= $downloadsCount?></strong>
                     </section>
                     <hr style="background: black"/>
                     <section class="download-links">

@@ -1,7 +1,7 @@
-drop database ecommerce_php_project;
+drop database Ecommerce_PHP_Project;
 CREATE DATABASE IF NOT EXISTS Ecommerce_PHP_Project;
 
-use ecommerce_php_project;
+use Ecommerce_PHP_Project;
 
 CREATE TABLE IF NOT EXISTS `users`
 (
