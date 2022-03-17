@@ -21,15 +21,12 @@ class Routes
             case '/create-product':
                 require_once("./Views/CreateProduct.php");
                 break;
-            case '/download-s3':
+            case '/download':
                 require_once("./Views/download.php");
                 break;
-            case '/download':
-                require_once ("./Views/downloadpage.php");
-                break;
             case  '/logout':
-                 require_once ("./Views/logout.php");
-                 break;
+                require_once("./Views/logout.php");
+                break;
             default:
                 http_response_code(404);
                 require_once("./Views/404.php");
