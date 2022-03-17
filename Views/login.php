@@ -1,13 +1,10 @@
 <?php
-//if(isset($_COOKIE["remember_me"])){
-//    $_SESSION["loggedin"]= true;
-//    header("Location:/profile");
-//    echo "ay 7war ";
-//}else {
-//    echo "ay 7war 2";
-//    header("Location:/login");
-//}
-
+$loginNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/login'>Login</a>
+                </li>";
+$logoutNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/logout'>Logout</a>
+                </li>";
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     header("Location:/profile");
@@ -42,7 +39,6 @@ if (isset($_POST["login"])) {
 
 
     }
-
 }
 ?>
 
@@ -83,41 +79,41 @@ if (isset($_POST["login"])) {
 <body class="main-layout">
 <header>
     <!-- header inner -->
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                    <div class="full">
-                        <div class="center-desk">
-                            <div class="logo">
-                                <a href="#"><img src="../Static/images/logo.png" alt="#"/></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9" style="display: flex;justify-content: flex-end;">
-                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04"
-                             style="display: flex;justify-content:flex-end">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Home</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
+    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Spicy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link" href="#">Login</a>-->
+                <!--                </li>-->
+
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo $logoutNavItem;
+                } else
+                    echo $loginNavItem;
+                ?>
+
+            </ul>
         </div>
-    </div>
+    </nav>
 </header>
 <!-- end header inner -->
 <!-- end header -->
@@ -175,5 +171,6 @@ if (isset($_POST["login"])) {
 <!-- end footer -->
 
 </body>
+<script src="../Static/js/navbar.js"></script>
 </html>
 

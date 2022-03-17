@@ -100,7 +100,7 @@ class UserService
      *
      * @param string $email
      * @param string $password
-     * @return int | null
+     * @return int
      */
     public function is_authUser(string $email,string $password) : int
     {
@@ -108,7 +108,8 @@ class UserService
         if(is_null($userinfo))
         {
                 return 0;
-        }else{
+        }
+        else{
             $regPassword=$userinfo->user_password;
             $hashedPassword=sha1($password);
             if(strcmp($regPassword,$hashedPassword)!=0)
