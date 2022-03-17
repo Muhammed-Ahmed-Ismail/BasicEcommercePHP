@@ -11,6 +11,7 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true)
 
            if($count<7)
             {$orderservice->updateAnyProduct(1,$orderId,$count+1);
+
                 print_r($_GET);
                 header('Content-Disposition: attachment; filename ="'."product".'.zip"');
                 if(isset($_GET["local"])){
@@ -20,6 +21,10 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true)
                     $s3Link=$productService->getObjectDownloadLink();
                    header("Location:$s3Link");
                 }
+
+            header('Content-Disposition: attachment; filename ="'."hamada".'.zip"');
+            readfile("Download_resources/product.zip");
+
             }
             else
             {
