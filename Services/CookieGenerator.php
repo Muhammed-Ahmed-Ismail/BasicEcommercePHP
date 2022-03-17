@@ -51,11 +51,12 @@ class CookieGenerator
      */
     function insertToken(string $selector, int $user_id, string $validator, string $expiry): bool
     {
-        $hashed_validator = password_hash($validator,null);
+//        $hashed_validator = sha1($validator);
         return $this->connection->table("token")
-            ->insert(['selector' => $selector, 'hashed_validator' => $hashed_validator,
+            ->insert(['selector' => $selector, 'hashed_validator' => $validator,
                 'user_id' => $user_id, 'expiry' => $expiry]);
     }
+
     /**
      * delete user token
      */
@@ -72,18 +73,19 @@ class CookieGenerator
     function FindTokenBySelector(string $selector): object|null
     {
         return $this->connection->table("token")
-            ->where("selector", "=", ":selector")
+            ->where("selector", "=", $selector)
             ->select(["selector", "hashed_validator", "user_id", "expiry"])->first();
     }
 
     /**
      * this function will return user_id and username bya token
      */
-    function FindUserByToken(string $token){
+    function FindUserByToken(string $token)
+    {
         $tokensParts = $this->parseToken($token);
         $this->connection->table("users")
-            ->join("token","user.ID","=","token.user_id")
-            ->select(["ID","e_mail"])->first();
+            ->join("token", "user.ID", "=", "token.user_id")
+            ->select(["ID", "e_mail"])->first();
     }
 
 
@@ -94,9 +96,37 @@ class CookieGenerator
     {
         [$selector, $validator] = $this->parseToken($token);
         $tokens = $this->FindTokenBySelector($selector);
-        if (!$tokens) {
+//        $clientHashedValidator = sha1($validator);
+
+        if (is_null($tokens)) {
+            echo "inside if";
             return false;
         }
-        return password_verify($validator, $tokens['hashed_validator']);
+
+        $y = $tokens->hashed_validator;
+        if ( $validator == $y) {
+            return true;
+        } else {
+            return false;
+        }
     }
-}
+
+        function remember_me(int $user_id, int $day = 30)
+        {
+            [$selector, $validator, $token] = $this->generateToken();
+
+//        $this->deleteToken($user_id);
+            // set expiration date
+            $expired_seconds = time() + 60 * 60 * 24 * $day;
+
+            // insert a token to the database
+//            $hash_validator = sha1($validator);
+
+            $expiry = date('Y-m-d H:i:s', $expired_seconds);
+
+            if ($this->insertToken($selector, $user_id, $validator, $expiry)) {
+                setcookie('remember_me', $token,0);
+            }
+        }
+    }
+
