@@ -1,14 +1,24 @@
 <?php
-$EmailValidateResult;
-$passwordValidateResult;
-$creditCardValidateResult;
-$CvvValidateResult;
+//$EmailValidateResult;
+//$passwordValidateResult;
+//$creditCardValidateResult;
+//$CvvValidateResult;
 $FormValidator = new FormValidator();
 if (isset($_POST["submit"])) {
     $EmailValidateResult = $FormValidator->validate_email("email");
     $passwordValidateResult = $FormValidator->validate_Password("password");
     $creditCardValidateResult = $FormValidator->validate_credit("credit_card");
     $CvvValidateResult = $FormValidator->validate_cvv("cvv");
+
+    /**
+     * inserting new user into database
+     * if success redirect to login page
+     */
+    if(isset($_POST["email"]) && isset($_POST["password"])){
+        $insertNewUser = new UserService();
+        $insertNewUser->insertUser($_POST["email"],$_POST["password"]);
+        header("Location:/login");
+    }
 }
 ?>
 
@@ -112,20 +122,21 @@ if (isset($_POST["submit"])) {
                             <div class="col-md-12 ">
                                 <input class="contactus" placeholder="email" type="text" name="email">
                                 <?php
-                               
+                               if(isset($EmailValidateResult["isValid"])){
                                 if ($EmailValidateResult["isValid"] == false) {
                                     echo "<span style ='color:red;'>".$EmailValidateResult["message"]."</span>" ;
 
-                                } 
+                                } }
                                 ?>
 
                             </div>
                             <div class="col-md-12">
                                 <input class="contactus" placeholder="Password" type="password" name="password">
                                 <?php
+                             if(isset($passwordValidateResult["isValid"])){
                                 if ($passwordValidateResult["isValid"] == false) {
                                     echo "<span style ='color:red;'>".$passwordValidateResult["message"]."</span>" ;
-                                } 
+                                } }
                                 ?>
                             </div>
                             <div class="col-md-12">
@@ -135,17 +146,19 @@ if (isset($_POST["submit"])) {
                             <div class="col-md-12">
                                 <input class="contactus" placeholder="credit card" type="password" name="credit card">
                                 <?php
+                                if(isset($creditCardValidateResult["isValid"] )){
                                 if ($creditCardValidateResult["isValid"] = false) {
                                     echo "<span style ='color:red;'>".$creditCardValidateResult["message"]."</span>" ;
-                                } 
+                                } }
                                 ?>
                             </div>
                             <div class="col-md-12">
                                 <input class="contactus" placeholder="cvv" type="number" name="cvv">
                                 <?php
+                                if(isset($CvvValidateResult["isValid"])){
                                 if ($CvvValidateResult["isValid"] = false) {
                                     echo "<span style ='color:red;'>".$CvvValidateResult["message"]."</span>" ;
-                                } 
+                                } }
                                 ?>
                             </div>
 
