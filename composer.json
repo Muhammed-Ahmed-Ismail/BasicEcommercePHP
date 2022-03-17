@@ -18,7 +18,8 @@
     "classmap": [
       "Models",
       "Services",
-      "Utilities"
+      "Utilities",
+      "Validators"
     ],
     "files": [
       "config.php"
