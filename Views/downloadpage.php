@@ -22,7 +22,7 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true)
                    header("Location:$s3Link");
                 }
 
-            header('Content-Disposition: attachment; filename ="'."hamada".'.zip"');
+            header('Content-Disposition: attachment; filename ="'."product".'.zip"');
             readfile("Download_resources/product.zip");
 
             }

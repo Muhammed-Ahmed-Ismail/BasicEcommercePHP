@@ -48,7 +48,7 @@ class UserService
     }
 
     /**
-     * update user data
+     * create user
      * return true if user inserted
      * false if user not inserted
      * @param string $email
@@ -82,6 +82,47 @@ class UserService
         return $this->dbContext->getDbc()::table('users')
             ->where('ID', $id)
             ->update(['e_mail' => $email, 'password', $password]);
+    }
+
+    /**
+     * updates user's password
+     * @param int $id
+     * @param string $password
+     * @return int
+     */
+    public function updateUsersPassword(int $id,string $password) : int
+    {
+        $hashedPassword=sha1($password);
+        return $this->dbContext->getDbc()::table('users')
+            ->where('ID', $id)->update(['user_password'=>$hashedPassword]);
+    }
+
+    public function is_auth_to_edit(int $id,string $password) : bool
+    {
+        $userinfo=$this->getUserById($id);
+        $regPassword=$userinfo->user_password;
+        $hashedPassword=sha1($password);
+        if(strcmp($regPassword,$hashedPassword)!=0)
+        {
+            return false;
+        }else
+        {
+            return true;
+        }
+
+    }
+
+    /**
+     * updates user's email
+     * @param int $id
+     * @param string $email
+     * @return int
+     */
+    public function updateUsersEmail(int $id,string $email) : int
+    {
+
+        return $this->dbContext->getDbc()::table('users')
+            ->where('ID', $id)->update(['e_mail'=> $email]);
     }
 
     /**
