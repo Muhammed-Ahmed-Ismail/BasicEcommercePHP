@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
             $newOrder = new OrderServices();
             $newOrder->addOrder($userID);
             header("Location:/login");
-        }else{
+        } else {
             header("Location:/");
         }
     }
@@ -126,7 +126,7 @@ if (isset($_POST["submit"])) {
                     <h1>Healthy Food Recipes</h1>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words
                         which don't look even slightly believable</p>
-                   
+
                 </div>
             </div>
             <div class="col-md-6">
@@ -193,14 +193,14 @@ if (isset($_POST["submit"])) {
 <!-- end clients -->
 <!--  footer -->
 <footer>
-    <div class="footer">
-
-        </div>
-        <div class="copyright">
+    <div class="footer" style="padding-top:19px;">
+        <div class="copyright" style="background:#eae9e4!important">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html Templates</a>
+                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
+                                    style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
+                                Templates</a>
                         </p>
                     </div>
                 </div>
@@ -209,6 +209,7 @@ if (isset($_POST["submit"])) {
     </div>
 </footer>
 <!-- end footer -->
+
 <!-- Javascript files-->
 <script src="../Static/js/jquery.min.js"></script>
 <script src="../Static/js/popper.min.js"></script>
@@ -219,5 +220,7 @@ if (isset($_POST["submit"])) {
 <script src="../Static/js/custom.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
+<script src="../Static/js/navbar.js"></script>
+
 
 </html>

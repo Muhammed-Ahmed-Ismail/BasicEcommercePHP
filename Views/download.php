@@ -56,44 +56,41 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
 <!-- header -->
 <header>
     <!-- header inner -->
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                    <div class="full">
-                        <div class="center-desk">
-                            <div class="logo">
-                                <a href="#"><img src="../Static/images/logo.png" alt="#"/></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Screenshort</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
-                                </li>
-                            </ul>
-                            <div class="Call"><a href="#"> <span class="yellow">Call Us : </span>12345677890</a></div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
+    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light" style="background: #eae9e4 !important;">
+        <a class="navbar-brand" href="#">Spicy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
+            <ul class="navbar-nav">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo $downloadNavItem;
+                    echo $profileNavItem;
+                }
+                ?>
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo $logoutNavItem;
+                } else
+                    echo $loginNavItem;
+                ?>
+            </ul>
         </div>
-    </div>
+    </nav>
 </header>
 <!-- end header inner -->
 <!-- end header -->
@@ -152,12 +149,14 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
 <!-- end food -->
 <!--  footer -->
 <footer>
-    <div class="footer">
-        <div class="copyright">
+    <div class="footer" style="padding-top:19px;">
+        <div class="copyright" style="background:#eae9e4!important">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html Templates</a>
+                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
+                                    style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
+                                Templates</a>
                         </p>
                     </div>
                 </div>
@@ -166,6 +165,7 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
     </div>
 </footer>
 <!-- end footer -->
+
 <!-- Javascript files-->
 <script src="../Static/js/jquery.min.js"></script>
 <script src="../Static/js/popper.min.js"></script>
@@ -176,4 +176,6 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
 <script src="../Static/js/custom.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
+<script src="../Static/js/navbar.js"></script>
+
 </html>
