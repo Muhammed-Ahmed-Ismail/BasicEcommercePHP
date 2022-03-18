@@ -12,9 +12,10 @@ $loginNavItem = "<li class='nav-item'>
 $logoutNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/logout'>Logout</a>
                 </li>";
+if(isset($_SESSION['user_name'])){
 $emailNavItem = "<li class='nav-item'>
                       <strong class='nav-link'>Email: <span>" . $_SESSION['user_name'] . "</span></strong>
-                </li>";
+                </li>";}
 
 $profileNavItem = " <li class='nav-item'>
                     <a class='nav-link' href='/profile'>Profile</a>
