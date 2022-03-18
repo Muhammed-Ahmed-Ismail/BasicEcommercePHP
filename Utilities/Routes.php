@@ -37,6 +37,9 @@ class Routes
             case  '/logout':
                 require_once("./Views/logout.php");
                 break;
+            case  '/about':
+                require_once("./Views/about.php");
+                break;
             default:
                 http_response_code(404);
                 require_once("./Views/404.php");
