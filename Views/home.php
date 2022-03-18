@@ -5,7 +5,8 @@
 //$CvvValidateResult;
 $FormValidator = new FormValidator();
 $qrService=new QService();
-$qrCode=$qrService->makeQR("/profile");
+$qrlink=$_SERVER["HTTP_HOST"]."/about";
+$qrCode=$qrService->makeQR($qrlink);
 $loginNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/login'>Login</a>
                 </li>";

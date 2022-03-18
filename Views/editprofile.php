@@ -146,15 +146,15 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         <form id="request" class="main_form" method="POST" action="/editprofile">
             <div class="row">
                 <div class="col-md-12 ">
-                    <input class="contactus" placeholder="email" type="text" name="email">
+                    <input class="contactus" placeholder="new email" type="text" name="email">
                     <span style="color:red;"><?php if (isset($emailValidationError)) echo $emailValidationError; ?></span>
                 </div>
                 <div class="col-md-12">
-                    <input class="contactus" placeholder="Password" type="password" name="password">
+                    <input class="contactus" placeholder="new Password" type="password" name="password">
                     <span style="color:red;"><?php if (isset($passwordValidatioinError)) echo $passwordValidatioinError; ?></span>
                 </div>
                 <div class="col-md-12">
-                    <input class="contactus" placeholder="confirm password" type="password" name="confirm password">
+                    <input class="contactus" placeholder="confirm new password" type="password" name="confirm password">
                     <span style="color:red;"><?php if (isset($passwordConfirmValidatioinError)) echo $passwordConfirmValidatioinError; ?></span>
                 </div>
 
