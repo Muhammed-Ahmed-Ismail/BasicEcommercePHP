@@ -73,7 +73,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         <!-- header inner -->
         <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light"
              style="background: #eae9e4 !important;">
-            <a class="navbar-brand" href="#">Spicy</a>
+            <a class="navbar-brand" href="#">Awesome</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
