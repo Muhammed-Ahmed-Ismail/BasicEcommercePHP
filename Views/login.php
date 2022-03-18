@@ -133,10 +133,8 @@ if (isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password
         <div class="row d_flex">
             <div class="col-md-6">
                 <div class="text-bg">
-                    <h1>Healthy Food Recipes</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words
-                        which don't look even slightly believable</p>
-                    <a class="read_more" href="#">Read More</a>
+                    <h1>Awesome Software</h1>
+                    <p>Home Of Awesome Softwares</p>
                 </div>
             </div>
             <div class="col-md-6">

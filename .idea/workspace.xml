@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b61ee56d-7406-4452-84d3-b2e7f190bf7c" name="Changes" comment="Create get all users service">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/editprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/editprofile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
