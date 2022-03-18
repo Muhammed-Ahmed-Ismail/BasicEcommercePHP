@@ -70,7 +70,7 @@ class CookieGenerator
      * @param string $selector
      * @return object|null
      */
-    function FindTokenBySelector(string $selector): object|null
+    function FindTokenBySelector(string $selector)
     {
         return $this->connection->table("token")
             ->where("selector", "=", $selector)

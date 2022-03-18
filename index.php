@@ -9,6 +9,6 @@ require_once("vendor/autoload.php");
 /*$userService = new UserService();
 $userService->insertUser("a","1");*/
 /*$orserservice=new OrderServices();
-$orserservice->addOrder(5,1);*/
+$orserservice->addOrder(1,1);*/
 
 Routes::router();
