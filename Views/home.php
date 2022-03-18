@@ -4,6 +4,27 @@
 //$creditCardValidateResult;
 //$CvvValidateResult;
 $FormValidator = new FormValidator();
+$loginNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/login'>Login</a>
+                </li>";
+$logoutNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/logout'>Logout</a>
+                </li>";
+$emailNavItem = "<li class='nav-item'>
+                      <strong class='nav-link'>Email: <p>" . $_SESSION['$userID'] . "</p></strong>
+                </li>";
+
+$profileNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/profile'>Profile</a>
+                </li>";
+
+$downloadNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/download'>Profile</a>
+                </li>";
+
+$settingNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/download'>Setting</a>
+                </li>";
 if (isset($_POST["submit"])) {
     $EmailValidateResult = $FormValidator->validate_email("email");
     $passwordValidateResult = $FormValidator->validate_Password("password");
@@ -17,7 +38,7 @@ if (isset($_POST["submit"])) {
     if (isset($_POST["email"]) && isset($_POST["password"])) {
         $insertNewUser = new UserService();
         $userID = $insertNewUser->insertUser($_POST["email"], $_POST["password"]);
-        if ($userID>0) {
+        if ($userID > 0) {
             $newOrder = new OrderServices();
             $newOrder->addOrder($userID);
             header("Location:/login");
@@ -25,7 +46,6 @@ if (isset($_POST["submit"])) {
             header("Location:/");
         }
     }
-
 
 
 }
@@ -75,49 +95,48 @@ if (isset($_POST["submit"])) {
 <!-- header -->
 <header>
     <!-- header inner -->
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                    <div class="full">
-                        <div class="center-desk">
-                            <div class="logo">
-                                <a href="#"><img src="../Static/images/logo.png" alt="#"/></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Screenshort</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
-                                </li>
-                            </ul>
-                            <div class="Call"><a href="#"> <span class="yellow">Call Us : </span>12345677890</a></div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
+    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light" style="background: #eae9e4 !important;">
+        <a class="navbar-brand" href="#">Spicy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
+            <ul class="navbar-nav">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo $downloadNavItem;
+                    echo $profileNavItem;
+                    echo $settingNavItem;
+                }
+                ?>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo $emailNavItem;
+                    echo $logoutNavItem;
+                } else
+                    echo $loginNavItem;
+                ?>
+            </ul>
         </div>
-    </div>
+    </nav>
 </header>
 <!-- end header inner -->
 <!-- end header -->
 <!-- banner -->
-<section class="banner_main">
+<section class="banner_main" style="background: white !important;">
     <div class="container">
         <div class="row d_flex">
             <div class="col-md-6">
@@ -128,62 +147,58 @@ if (isset($_POST["submit"])) {
 
                 </div>
             </div>
-            <div class="col-md-6">
-                <form id="request" class="main_form" method="POST">
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <input class="contactus" placeholder="email" type="text" name="email">
+
+            <div class='col-md-6'>
+                <form id='request' class='main_form' method='POST'>
+                    <div class='row'>
+                        <div class='col-md-12 '>
+                            <input class='contactus' placeholder='email' type='text' name='email'>
                             <?php
-                            if (isset($EmailValidateResult["isValid"])) {
-                                if ($EmailValidateResult["isValid"] == false) {
-                                    echo "<span style ='color:red;'>" . $EmailValidateResult["message"] . "</span>";
+                            if (isset($EmailValidateResult['isValid'])) {
+                                if ($EmailValidateResult['isValid'] == false) {
+                                    echo "<span style ='color:red;'>" . $EmailValidateResult['message'] . "</span>";
 
                                 }
                             }
                             ?>
 
                         </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="Password" type="password" name="password">
+                        <div class='col-md-12'>
+                            <input class='contactus' placeholder='Password' type='password' name='password'>
                             <?php
-                            if (isset($passwordValidateResult["isValid"])) {
-                                if ($passwordValidateResult["isValid"] == false) {
-                                    echo "<span style ='color:red;'>" . $passwordValidateResult["message"] . "</span>";
+                            if (isset($passwordValidateResult['isValid'])) {
+                                if ($passwordValidateResult['isValid'] == false) {
+                                    echo "<span style ='color:red;'>" . $passwordValidateResult['message'] . '</span>';
                                 }
                             }
                             ?>
                         </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="confirm password" type="password"
-                                   name="confirm password">
+                        <div class='col-md-12'>
+                            <input class='contactus' placeholder='confirm password' type='password'
+                                   name='confirm password'>
 
                         </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="credit card" type="password" name="credit card">
+                        <div class='col-md-12'>
+                            <input class='contactus' placeholder='credit card' type='text' name='credit card'>
                             <?php
-                            if (isset($creditCardValidateResult["isValid"])) {
-                                if ($creditCardValidateResult["isValid"] = false) {
-                                    echo "<span style ='color:red;'>" . $creditCardValidateResult["message"] . "</span>";
+                            if (isset($creditCardValidateResult['isValid'])) {
+                                if ($creditCardValidateResult['isValid'] = false) {
+                                    echo "<span style ='color:red;'>" . $creditCardValidateResult['message'] . '</span>';
                                 }
                             }
                             ?>
                         </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="cvv" type="number" name="cvv">
+                        <div class='col-md-12'>
+                            <input class='contactus' placeholder='cvv' type='number' name='cvv'>
                             <?php
-                            if (isset($CvvValidateResult["isValid"])) {
-                                if ($CvvValidateResult["isValid"] = false) {
-                                    echo "<span style ='color:red;'>" . $CvvValidateResult["message"] . "</span>";
+                            if (isset($CvvValidateResult['isValid'])) {
+                                if ($CvvValidateResult['isValid'] = false) {
+                                    echo "<span style ='color:red;'>" . $CvvValidateResult['message'] . '</span>';
                                 }
                             }
                             ?>
                         </div>
-
-                        <div class="col-sm-12">
-                            <!-- <input class="send_btn" value="submit" type="submit" name="submit"> -->
-
-                        </div>
-                        <input class="send_btn" value="submit" type="submit" name="submit">
+                        <input class='send_btn' value='submit' type='submit' name='submit'>
                 </form>
             </div>
         </div>
