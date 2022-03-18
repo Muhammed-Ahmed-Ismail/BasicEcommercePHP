@@ -83,10 +83,14 @@ else{
                                     <a class="nav-link" href="#">About </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="/profile">Profile </a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="<?= "/logout"?>">Log Out</a>
                                 </li>
                             </ul>
                             <div class="Call"><a href="#"> <span class="yellow">User Name: </span><?= $_SESSION["user_name"]?></a></div>
+                            <div style="margin-left: 10px" class="Call"><a href="/editprofile"> <span class="yellow">Settings</span></a></div>
                         </div>
                     </nav>
                 </div>
