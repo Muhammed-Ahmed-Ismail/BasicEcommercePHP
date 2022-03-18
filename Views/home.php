@@ -4,17 +4,21 @@
 //$creditCardValidateResult;
 //$CvvValidateResult;
 $FormValidator = new FormValidator();
+$qrService=new QService();
+$qrCode=$qrService->makeQR("/profile");
 $loginNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/login'>Login</a>
                 </li>";
 $logoutNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/logout'>Logout</a>
                 </li>";
+
 if(isset($_SESSION["user_name"])){
 $emailNavItem = "<li class='nav-item'>
                       <strong class='nav-link'>Email: <span>" .$_SESSION['user_name']. "</span></strong>
                 </li>";
 }
+
 $profileNavItem = " <li class='nav-item'>
                     <a class='nav-link' href='/profile'>Profile</a>
                 </li>";
@@ -142,10 +146,9 @@ if (isset($_POST["submit"])) {
         <div class="row d_flex">
             <div class="col-md-6">
                 <div class="text-bg">
-                    <h1>Healthy Food Recipes</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words
-                        which don't look even slightly believable</p>
-
+                    <h1>Software Packages</h1>
+                    <p>Some valuable software products that is designd by a group of brilliant developers using php.</p></br>
+                    <img src="<?php echo $qrCode;?>" style="width:400px; height: 400px" alt="qrcode">
                 </div>
             </div>
 

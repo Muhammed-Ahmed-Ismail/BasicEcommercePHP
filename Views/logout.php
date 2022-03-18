@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
 {
-     var_dump($_SESSION);
     $ck = new CookieGenerator();
     $ck->deleteToken($_SESSION["user_id"]);
     session_destroy();

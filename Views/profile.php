@@ -124,8 +124,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             </div>
             <div class="row" style="justify-content: center">
                 <div class="col-md-4">
-                    <div class="food_box">
-                        <i><img src="../Static/images/softwarelogo.png" alt="logo"/></i>
+                    <div class="food_box" style="border-radius: 30px">
+                        <i><img src="../Static/images/softwarelogo.png" alt="logo" style="margin-top: -145px" /></i>
                         <h4>Awesome Software</h4>
                         <ul class="list-group-item border-primary">
                             <li>Order number : <?= $orderId ?></li>
