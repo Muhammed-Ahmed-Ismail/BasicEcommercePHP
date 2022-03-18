@@ -6,6 +6,14 @@ $logoutNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/logout'>Logout</a>
                 </li>";
 
+$profileNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/profile'>Profile</a>
+                </li>";
+
+$downloadNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/download'>Profile</a>
+                </li>";
+
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     header("Location:/profile");
 
@@ -85,18 +93,22 @@ if (isset($_POST["login"])) {
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
             <ul class="navbar-nav">
+
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Download</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
+
+                <?php
+                if (isset($_SESSION["email"])) {
+                    echo $downloadNavItem;
+                    echo $profileNavItem;
+                }
+                ?>
+
             </ul>
             <ul class="navbar-nav ml-auto">
                 <?php
@@ -153,7 +165,8 @@ if (isset($_POST["login"])) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
+                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
+                                    style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
                                 Templates</a>
                         </p>
                     </div>
