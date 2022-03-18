@@ -4,6 +4,8 @@
 //$creditCardValidateResult;
 //$CvvValidateResult;
 $FormValidator = new FormValidator();
+$qrService=new QService();
+$qrCode=$qrService->makeQR("/profile");
 $loginNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/login'>Login</a>
                 </li>";
@@ -143,8 +145,8 @@ if (isset($_POST["submit"])) {
                 <div class="text-bg">
                     <h1>Healthy Food Recipes</h1>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words
-                        which don't look even slightly believable</p>
-
+                        which don't look even slightly believable</p></br>
+                    <img src="<?php echo $qrCode;?>" style="width:400px; height: 400px" alt="qrcode">
                 </div>
             </div>
 

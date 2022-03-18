@@ -135,8 +135,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         </div>
         <div class="row" style="justify-content: center">
             <div class="col-md-4">
-                <div class="food_box">
-                    <i><img src="../Static/images/food3.png" alt="product"/></i>
+                <div class="food_box" style="border-radius: 30px" >
+                    <i><img src="../Static/images/softwarelogo.png" alt="product" style="margin-top: -145px"/></i>
                     <h4>Native PHP product</h4>
                     <hr style="background: black"/>
 
