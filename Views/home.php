@@ -143,9 +143,8 @@ if (isset($_POST["submit"])) {
         <div class="row d_flex">
             <div class="col-md-6">
                 <div class="text-bg">
-                    <h1>Healthy Food Recipes</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words
-                        which don't look even slightly believable</p></br>
+                    <h1>Software Packages</h1>
+                    <p>Some valuable software products that is designd by a group of brilliant developers using php.</p></br>
                     <img src="<?php echo $qrCode;?>" style="width:400px; height: 400px" alt="qrcode">
                 </div>
             </div>
