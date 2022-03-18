@@ -21,11 +21,20 @@ class Routes
             case '/create-product':
                 require_once("./Views/CreateProduct.php");
                 break;
-            case '/download-s3':
+           /* case '/download-s3':
                 require_once("./Views/download.php");
-                break;
-            case '/download':
+                break;*/
+            case '/download?s3=1':
+            case '/download?local=1':
                 require_once ("./Views/downloadpage.php");
+                break;
+
+            case '/downloadarea':
+                require_once ("./Views/download.php");
+/*
+                case '/downloadarea':
+                require_once ("./Views/downloadarea.php");*/
+
                 break;
             case  '/logout':
                  require_once ("./Views/logout.php");
