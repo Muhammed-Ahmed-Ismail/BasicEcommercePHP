@@ -11,7 +11,7 @@ $logoutNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/logout'>Logout</a>
                 </li>";
 $emailNavItem = "<li class='nav-item'>
-                      <strong class='nav-link'>Email: <p>" . $_SESSION['$userID'] . "</p></strong>
+                      <strong class='nav-link'>Email: <span>" . $_SESSION['user_name'] . "</span></strong>
                 </li>";
 
 $profileNavItem = " <li class='nav-item'>

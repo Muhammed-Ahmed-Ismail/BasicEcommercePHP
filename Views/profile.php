@@ -4,12 +4,16 @@ $logoutNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/logout'>Logout</a>
                 </li>";
 
+$emailNavItem = "<li class='nav-item'>
+                      <strong class='nav-link'>Email: <span>" . $_SESSION['user_name'] . "</span></strong>
+                </li>";
+
 $profileNavItem = " <li class='nav-item active'>
                     <a class='nav-link' href='/profile'>Profile</a>
                 </li>";
 
 $downloadNavItem = " <li class='nav-item'>
-                    <a class='nav-link' href='/downloadarea'>Donwload</a>
+                    <a class='nav-link' href='/downloadarea'>Download</a>
                 </li>";
 
 $settingNavItem = "<li class='nav-item'>
@@ -23,16 +27,11 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     $orderInfo = $orderService->getOrderByUserId($_SESSION["user_id"]);
 
     $downloadCount = $orderInfo->downloads_count;
-    var_dump($orderInfo);
-    var_dump($_SESSION);
 
     $orderId = $orderInfo->order_id;
     $orderUserId = $orderInfo->ID;
-    //  $orderLink=$orderInfo->custom_sl;
     $_SESSION["order_id"] = $orderId;
     $_SESSION["download_count"] = $downloadCount;
-    /* echo "downloads count for this order:$count";
-     echo "<h1>Hello from profile page</h1> <a href='$downloadLink'>link to download </a>";*/
 } else {
     header("Location:/login");
 }
@@ -102,6 +101,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 <ul class="navbar-nav ml-auto">
                     <?php
                     if (isset($_SESSION["loggedin"])) {
+                        echo $emailNavItem;
                         echo $logoutNavItem;
                     }
                     ?>

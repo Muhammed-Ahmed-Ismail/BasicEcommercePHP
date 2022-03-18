@@ -1,26 +1,44 @@
 <?php
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
-{
-    if(isset($_POST["authtoedit"]) && !empty($_POST["password"]))
-    {
-        $userService=new UserService();
-        $userId=$_SESSION["user_id"];
-        $enteredPassword=$_POST["password"];
-        $isAuth=$userService->is_auth_to_edit($userId,$enteredPassword);
-        if($isAuth)
-        {
-            $_SESSION["authtoedit"]=true;
+$loginNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/login'>Login</a>
+                </li>";
+$logoutNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/logout'>Logout</a>
+                </li>";
+$emailNavItem = "<li class='nav-item'>
+                      <strong class='nav-link'>Email: <span>" . $_SESSION['user_name'] . "</span></strong>
+                </li>";
+
+$profileNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/profile'>Profile</a>
+                </li>";
+
+$downloadNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/downloadarea'>Donwload</a>
+                </li>";
+
+$settingNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/editprofile'>Setting</a>
+                </li>";
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    if (isset($_POST["authtoedit"]) && !empty($_POST["password"])) {
+        $userService = new UserService();
+        $userId = $_SESSION["user_id"];
+        $enteredPassword = $_POST["password"];
+        $isAuth = $userService->is_auth_to_edit($userId, $enteredPassword);
+        if ($isAuth) {
+            $_SESSION["authtoedit"] = true;
             header("Location:/editprofile");
-        }else {
+        } else {
             header("Location:/authedit");
         }
 
     }
-}else {
+} else {
     header("Location:/login");
 }
 ?>
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- basic -->
@@ -55,54 +73,53 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
 <body>
 <header>
     <!-- header inner -->
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                    <div class="full">
-                        <div class="center-desk">
-                            <div class="logo">
-                                <a href="#"><img src="../Static/images/logo.png" alt="#"/></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/profile">Profile </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= "/logout"?>">Log Out</a>
-                                </li>
-                            </ul>
-                            <div class="Call"><a href="#"> <span class="yellow">Email: </span><?= $_SESSION["user_name"]?></a></div>
-                            <div style="margin-left: 50px" class="Call"><a href="/editprofile"> <span class="yellow">Settings</span></a></div>
+    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light" style="background: #eae9e4 !important;">
+        <a class="navbar-brand" href="#">Spicy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
+            <ul class="navbar-nav">
 
-                        </div>
-                    </nav>
-                </div>
-            </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <?php
+                if (isset($_SESSION["loggedin"])) {
+                    echo $downloadNavItem;
+                    echo $profileNavItem;
+                    echo $settingNavItem;
+                }
+                ?>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <?php
+                if (isset($_SESSION["loggedin"])) {
+                    echo $emailNavItem;
+                    echo $logoutNavItem;
+                } else
+                    echo $loginNavItem;
+                ?>
+            </ul>
         </div>
-    </div>
+    </nav>
 </header>
+<!-- end header inner -->
+
 <div class="container" style="display: flex; justify-content: center">
     <div class="col-md-6" style="margin-top: 25px">
         <form id="request" class="main_form" method="POST" action="/authedit">
             <div class="row">
                 <div class="col-md-12">
                     <input class="contactus" placeholder="Password" type="password" name="password">
-                    <span style="color:red;"></span>                            </div>
+                    <span style="color:red;"></span></div>
                 <div class="col-sm-12">
                     <!-- <input class="send_btn" value="submit" type="submit" name="submit"> -->
                 </div>
@@ -112,19 +129,25 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
         </form>
     </div>
 </div>
+<!--  footer -->
 <footer>
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html Templates</a>
-                    </p>
+    <div class="footer" style="padding-top:19px;">
+        <div class="copyright" style="background:#eae9e4!important">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
+                                    style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
+                                Templates</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </footer>
+<!-- end footer -->
+
 
 </body>
 </html>

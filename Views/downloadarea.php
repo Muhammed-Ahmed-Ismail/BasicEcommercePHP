@@ -7,6 +7,9 @@ $logoutNavItem = "<li class='nav-item'>
 $profileNavItem = " <li class='nav-item'>
                     <a class='nav-link' href='/profile'>Profile</a>
                 </li>";
+$emailNavItem = "<li class='nav-item'>
+                      <strong class='nav-link'>Email: <span>" . $_SESSION['user_name'] . "</span></strong>
+                </li>";
 
 $downloadNavItem = " <li class='nav-item'>
                     <a class='nav-link' href='/download'>Donwload</a>
@@ -74,7 +77,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 </li>
 
                 <?php
-                if (isset($_SESSION["email"])) {
+                if (isset($_SESSION["loggedin"])) {
                     echo $downloadNavItem;
                     echo $profileNavItem;
                     echo $settingNavItem;
@@ -84,7 +87,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             </ul>
             <ul class="navbar-nav ml-auto">
                 <?php
-                if (isset($_SESSION["email"])) {
+                if (isset($_SESSION["loggedin"])) {
+                    echo $emailNavItem;
                     echo $logoutNavItem;
                 }
                 ?>

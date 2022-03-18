@@ -1,7 +1,13 @@
 <?php
 
+$loginNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/login'>Login</a>
+                </li>";
 $logoutNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/logout'>Logout</a>
+                </li>";
+$emailNavItem = "<li class='nav-item'>
+                      <strong class='nav-link'>Email: <span>" . $_SESSION['user_name'] . "</span></strong>
                 </li>";
 
 $profileNavItem = " <li class='nav-item'>
@@ -9,7 +15,7 @@ $profileNavItem = " <li class='nav-item'>
                 </li>";
 
 $downloadNavItem = " <li class='nav-item'>
-                    <a class='nav-link active' href='/downloadarea'>Donwload</a>
+                    <a class='nav-link' href='/downloadarea'>Donwload</a>
                 </li>";
 
 $settingNavItem = "<li class='nav-item'>
@@ -73,8 +79,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 <!-- header -->
 <header>
     <!-- header inner -->
-    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light"
-         style="background: #eae9e4 !important;">
+    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light" style="background: #eae9e4 !important;">
         <a class="navbar-brand" href="#">Spicy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +88,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
             <ul class="navbar-nav">
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
 
@@ -98,13 +103,15 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                     echo $settingNavItem;
                 }
                 ?>
-
             </ul>
+
             <ul class="navbar-nav ml-auto">
                 <?php
                 if (isset($_SESSION["loggedin"])) {
+                    echo $emailNavItem;
                     echo $logoutNavItem;
-                }
+                } else
+                    echo $loginNavItem;
                 ?>
             </ul>
         </div>
@@ -166,7 +173,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     </div>
 </div>
 <!-- end food -->
-
+<!--  footer -->
 <footer>
     <div class="footer" style="padding-top:19px;">
         <div class="copyright" style="background:#eae9e4!important">
@@ -184,6 +191,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     </div>
 </footer>
 <!-- end footer -->
+
 
 <!-- Javascript files-->
 <script src="../Static/js/jquery.min.js"></script>
