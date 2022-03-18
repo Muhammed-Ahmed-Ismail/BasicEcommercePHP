@@ -18,7 +18,6 @@ if (isset($_POST["submit"])) {
         $insertNewUser = new UserService();
         $userID = $insertNewUser->insertUser($_POST["email"], $_POST["password"]);
         if ($userID>0) {
-            var_dump($userID);
             $newOrder = new OrderServices();
             $newOrder->addOrder($userID);
             header("Location:/login");

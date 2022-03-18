@@ -14,6 +14,10 @@ $downloadNavItem = " <li class='nav-item'>
                     <a class='nav-link' href='/download'>Profile</a>
                 </li>";
 
+$settingNavItem =  "<li class='nav-item'>
+                    <a class='nav-link' href='/download'>Setting</a>
+                </li>";
+
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     header("Location:/profile");
 
@@ -106,6 +110,7 @@ if (isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password
                 if (isset($_SESSION["email"])) {
                     echo $downloadNavItem;
                     echo $profileNavItem;
+                    echo $settingNavItem;
                 }
                 ?>
 
