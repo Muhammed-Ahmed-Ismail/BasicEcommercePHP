@@ -108,7 +108,6 @@ class ProductServices
             unlink($filePath);
 
         } catch (S3Exception $e) {
-            var_dump($e->getMessage());
             die("Something wrong happened while uploading file to s3 bucket");
         }
 

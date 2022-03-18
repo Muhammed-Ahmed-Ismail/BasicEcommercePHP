@@ -1,25 +1,38 @@
 <?php
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
-{
 
-    $downloadLink="/download";
-    $orderService=new OrderServices();
+$logoutNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/logout'>Logout</a>
+                </li>";
 
-    $orderInfo=$orderService->getOrderByUserId($_SESSION["user_id"]);
+$emailNavItem = "<li class='nav-item'>
+                      <strong class='nav-link'>Email: <span>" . $_SESSION['user_name'] . "</span></strong>
+                </li>";
 
-    $downloadCount=$orderInfo->downloads_count;
-    var_dump($orderInfo);
-    var_dump($_SESSION);
+$profileNavItem = " <li class='nav-item active'>
+                    <a class='nav-link' href='/profile'>Profile</a>
+                </li>";
 
-    $orderId=$orderInfo->order_id;
-    $orderUserId=$orderInfo->ID;
-  //  $orderLink=$orderInfo->custom_sl;
-    $_SESSION["order_id"]=$orderId;
-    $_SESSION["download_count"]=$downloadCount;
-   /* echo "downloads count for this order:$count";
-    echo "<h1>Hello from profile page</h1> <a href='$downloadLink'>link to download </a>";*/
-}
-else{
+$downloadNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/downloadarea'>Download</a>
+                </li>";
+
+$settingNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/editprofile'>Setting</a>
+                </li>";
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    $downloadLink = "/download";
+    $orderService = new OrderServices();
+
+    $orderInfo = $orderService->getOrderByUserId($_SESSION["user_id"]);
+
+    $downloadCount = $orderInfo->downloads_count;
+
+    $orderId = $orderInfo->order_id;
+    $orderUserId = $orderInfo->ID;
+    $_SESSION["order_id"] = $orderId;
+    $_SESSION["download_count"] = $downloadCount;
+} else {
     header("Location:/login");
 }
 ?>
@@ -55,97 +68,99 @@ else{
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     </head>
-<body>
-<header>
-    <!-- header inner -->
-    <div class="header">
+    <body>
+    <header>
+        <!-- header inner -->
+        <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light"
+             style="background: #eae9e4 !important;">
+            <a class="navbar-brand" href="#">Spicy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                    <?php
+                    if (isset($_SESSION["loggedin"])) {
+                        echo $downloadNavItem;
+                        echo $profileNavItem;
+                        echo $settingNavItem;
+                    }
+                    ?>
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <?php
+                    if (isset($_SESSION["loggedin"])) {
+                        echo $emailNavItem;
+                        echo $logoutNavItem;
+                    }
+                    ?>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- end header inner -->
+
+    <div class="food">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                    <div class="full">
-                        <div class="center-desk">
-                            <div class="logo">
-                                <a href="#"><img src="../Static/images/logo.png" alt="#"/></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/profile">Profile </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= "/logout"?>">Log Out</a>
-                                </li>
-                            </ul>
-                            <div class="Call"><a href="#"> <span class="yellow">User Name: </span><?= $_SESSION["user_name"]?></a></div>
-                            <div style="margin-left: 10px" class="Call"><a href="/editprofile"> <span class="yellow">Settings</span></a></div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="food">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2><strong class="yellow">Software </strong>Packages</h2>
-                    <span>There are many variations of passages of Lorem Ipsum available, but the majorityomised words which don't look
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2><strong class="yellow">Software </strong>Packages</h2>
+                        <span>There are many variations of passages of Lorem Ipsum available, but the majorityomised words which don't look
                      even slightly believable</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-4">
-                <div class="food_box">
-                    <i><img src="../Static/images/softwarelogo.png" alt="#"/></i>
-                    <h4>Awesome Software</h4>
-                    <ul class="list-group-item border-primary">
-                        <li>Order number : <?= $orderId ?></li>
-                        <li>Downloads Count <?= $downloadCount ?></li>
-                        <li><a href="/downloadarea"> Download page</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html Templates</a>
-                        </p>
+            <div class="row" style="justify-content: center">
+                <div class="col-md-4">
+                    <div class="food_box">
+                        <i><img src="../Static/images/softwarelogo.png" alt="logo"/></i>
+                        <h4>Awesome Software</h4>
+                        <ul class="list-group-item border-primary">
+                            <li>Order number : <?= $orderId ?></li>
+                            <li>Downloads Count <?= $downloadCount ?></li>
+                            <li><a href="/downloadarea"> Download page</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</footer>
 
-</body>
-</html>
+    <footer>
+        <div class="footer" style="padding-top:19px;">
+            <div class="copyright" style="background:#eae9e4!important">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
+                                        style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
+                                    Templates</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    </body>
+    </html>
 
 <?php
-if(isset($_POST["logout"])){
+if (isset($_POST["logout"])) {
     session_destroy();
 }
 ?>

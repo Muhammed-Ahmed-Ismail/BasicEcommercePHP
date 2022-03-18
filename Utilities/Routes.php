@@ -18,7 +18,7 @@ class Routes
             case '/profile' :
                 require_once("./Views/profile.php");
                 break;
-                case '/editprofile' :
+            case '/editprofile' :
                 require_once("./Views/editprofile.php");
                 break;
             case '/authedit':
@@ -27,24 +27,16 @@ class Routes
             case '/create-product':
                 require_once("./Views/CreateProduct.php");
                 break;
-           /* case '/download-s3':
-                require_once("./Views/download.php");
-                break;*/
             case '/download?s3=1':
             case '/download?local=1':
-                require_once ("./Views/downloadpage.php");
+                require_once("./Views/downloadpage.php");
                 break;
-
             case '/downloadarea':
-                require_once ("./Views/download.php");
-/*
-                case '/downloadarea':
-                require_once ("./Views/downloadarea.php");*/
-
+                require_once("./Views/download.php");
                 break;
             case  '/logout':
-                 require_once ("./Views/logout.php");
-                 break;
+                require_once("./Views/logout.php");
+                break;
             default:
                 http_response_code(404);
                 require_once("./Views/404.php");

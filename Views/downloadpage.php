@@ -9,27 +9,26 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true)
     $orderId=$_SESSION["order_id"];
     $count=$orderservice->getDownloadTimes($orderId)->downloads_count;
 
-           if($count<7)
-            {$orderservice->updateAnyProduct(1,$orderId,$count+1);
+    if($count<7)
+    {$orderservice->updateAnyProduct(1,$orderId,$count+1);
 
-                print_r($_GET);
-                header('Content-Disposition: attachment; filename ="'."product".'.zip"');
-                if(isset($_GET["local"])){
+        print_r($_GET);
+        header('Content-Disposition: attachment; filename ="'."product".'.zip"');
+        if(isset($_GET["local"])){
 
             readfile("Download_resources/product.zip");
-                }else{
-                    $s3Link=$productService->getObjectDownloadLink();
-                   header("Location:$s3Link");
-                }
+        }else{
+            $s3Link=$productService->getObjectDownloadLink();
+            header("Location:$s3Link");
+        }
 
-            header('Content-Disposition: attachment; filename ="'."product".'.zip"');
-            readfile("Download_resources/product.zip");
+        header('Content-Disposition: attachment; filename ="'."product".'.zip"');
+        readfile("Download_resources/product.zip");
 
-            }
-            else
-            {
-                header("Location:/profile");
-            }
+    }
+    else
+    {
+        header("Location:/profile");
+    }
 
 }
-
