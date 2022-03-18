@@ -111,13 +111,19 @@ $settingNavItem = "<li class='nav-item'>
             <div class="col-md-6">
                 <br><br>
                 <div class="text-bg">
-                    <h1>Healthy Food Recipes</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majorityomised words
-                        which don't look even slightly believable</p>
+                    <h1>Awesome Software</h1>
+                    <p>A start up of bunche of brilliant developers </p>
+                    <ul>
+                        <li>Abullah Hegab</li>
+                        <li>Abulrahman Saleh</li>
+                        <li>Muhammad Eldefrawy</li>
+                        <li>Muhammed Emad</li>
+                        <li>Muhammad Ismail</li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="Static/images/food.jpg" alt="image">
+                <img src="Static/images/awesom.jpg" alt="image">
             </div>
         </div>
     </div>
@@ -131,9 +137,7 @@ $settingNavItem = "<li class='nav-item'>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
-                                    style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
-                                Templates</a>
+                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2022 All Right Reserved By Awesome Software</a>
                         </p>
                     </div>
                 </div>

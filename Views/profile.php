@@ -139,14 +139,12 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     </div>
 
     <footer>
-        <div class="footer" style="padding-top:19px;">
+        <div class="footer" style="padding-top:10px;">
             <div class="copyright" style="background:#eae9e4!important">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
-                                        style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
-                                    Templates</a>
+                            <p style="color: rgba(0,0,0,.5) !important;">Copyright 2022 All Right Reserved By Awesome Software</a>
                             </p>
                         </div>
                     </div>

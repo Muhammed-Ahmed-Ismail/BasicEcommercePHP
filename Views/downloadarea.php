@@ -124,16 +124,17 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 </div>
 
 <footer>
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html Templates</a>
-                    </p>
+    <div class="footer" style="padding-top:10px;">
+        <div class="copyright" style="background:#eae9e4!important">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2022 All Right Reserved By Awesome Software</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </footer>
 
