@@ -24,7 +24,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 }
 
 
-if (isset($_POST["login"])) {
+if (isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
     $userService = new UserService();
     $visitorEmail = $_POST["email"];
     $visitorPassword = $_POST["password"];
