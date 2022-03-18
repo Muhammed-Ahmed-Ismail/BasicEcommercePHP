@@ -39,6 +39,7 @@ class OrderServices{
 
     function getOrderByUserId($userID): ?stdClass{
         if (is_numeric($userID) && $userID > 0) {
+            var_dump($userID);
             return $this->connection->table("orders")->where("ID", "=", "$userID ")->select(["downloads_count", "product_id","ID","order_id"])->first();
         } else {
             return null;
@@ -83,7 +84,7 @@ class OrderServices{
      * @param int $pid
      * @return int
      */
-     public function addOrder(int $uid,int $pid) :int {
+     public function addOrder(int $uid,int $pid=1) :int {
         $orderDate=date("Y-m-d");
         return $this->connection->table("orders")->insertGetId(["order_date"=>$orderDate,"ID"=>$uid,"product_id"=>$pid]);
 
