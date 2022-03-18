@@ -1,10 +1,16 @@
 <?php
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]==true)
 {
+
     $downloadLink="/download";
     $orderService=new OrderServices();
+
     $orderInfo=$orderService->getOrderByUserId($_SESSION["user_id"]);
+
     $downloadCount=$orderInfo->downloads_count;
+    var_dump($orderInfo);
+    var_dump($_SESSION);
+
     $orderId=$orderInfo->order_id;
     $orderUserId=$orderInfo->ID;
   //  $orderLink=$orderInfo->custom_sl;

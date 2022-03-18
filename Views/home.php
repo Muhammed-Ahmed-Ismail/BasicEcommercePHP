@@ -16,13 +16,19 @@ if (isset($_POST["submit"])) {
      */
     if (isset($_POST["email"]) && isset($_POST["password"])) {
         $insertNewUser = new UserService();
-        $is_valid = $insertNewUser->insertUser($_POST["email"], $_POST["password"]);
-        if ($is_valid) {
+        $userID = $insertNewUser->insertUser($_POST["email"], $_POST["password"]);
+        if ($userID>0) {
+            var_dump($userID);
+            $newOrder = new OrderServices();
+            $newOrder->addOrder($userID);
             header("Location:/login");
         }else{
             header("Location:/");
         }
     }
+
+
+
 }
 ?>
 

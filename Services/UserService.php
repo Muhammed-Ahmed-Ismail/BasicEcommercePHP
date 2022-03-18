@@ -58,15 +58,14 @@ class UserService
     public function insertUser(string $email, string $password): bool
     {
         $selectedUser = $this->getUserByEmail($email);
-        $isInserted = false;
+        $userID=0;
         $hashedPassword=sha1($password);
         if (is_null($selectedUser)) {
             $newUser = ["e_mail" => $email, "user_password" => $hashedPassword];
-            $this->dbContext->getDbc()::table('users')->insert($newUser);
-            $isInserted = true;
+//            $this->dbContext->getDbc()::table('users')->insert($newUser);
+            $userID = $this->dbContext->getDbc()::table('users')->insertGetId($newUser);
         }
-
-        return $isInserted;
+        return $userID;
     }
 
     /**

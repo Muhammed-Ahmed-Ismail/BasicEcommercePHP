@@ -1,7 +1,7 @@
-drop database Ecommerce_PHP_Project;
-CREATE DATABASE IF NOT EXISTS Ecommerce_PHP_Project;
+-- drop database ecommerce_php_project;
 
-use Ecommerce_PHP_Project;
+CREATE DATABASE IF NOT EXISTS Ecommerce_PHP_Project;
+use ecommerce_php_project;
 
 CREATE TABLE IF NOT EXISTS `users`
 (
@@ -44,23 +44,17 @@ CREATE TABLE IF NOT EXISTS `orders`
     FOREIGN KEY (`product_id`) REFERENCES products (`product_id`)
 );
 
+
+
+INSERT into products (download_file_link, file_name)
+VALUES ('/home/download/abx.zip', 'abx.zip');
+-- insert into orders (ID, product_id, order_date)
+-- VALUES (1, 1, '2008-7-04');
+
+-- insert into orders (ID, product_id, order_date)
+-- VALUES (3, 1, '2008-7-04');
+
 select * from orders;
 select * from products;
 select * from token;
 select * from users;
-
--- insert into users (e_mail, user_password)
--- values ('a', '1');
--- insert into users (e_mail, user_password)
--- values ('b', '2');
--- insert into users (e_mail, user_password)
--- values ('c', '3');
--- INSERT into products (download_file_link, file_name)
--- VALUES ('/home/download/abx.zip', 'abx.zip');
--- insert into orders (ID, product_id, order_date)
--- VALUES (1, 1, '2008-7-04');
--- insert into orders (ID, product_id, order_date)
--- VALUES (2, 1, '2008-7-04');
--- insert into orders (ID, product_id, order_date)
--- VALUES (3, 1, '2008-7-04');
-
