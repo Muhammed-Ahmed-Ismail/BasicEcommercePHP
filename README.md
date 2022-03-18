@@ -1,6 +1,6 @@
 # Basic E-commerce application
 
-This is a solution of creating basic e-commerce system using native PHP
+This is a solution of creating basic e-commerce system using native PHP that allows you to sell your product in a secure way for selected times for each product for each user
 
 ## Table of contents
 
@@ -8,35 +8,61 @@ This is a solution of creating basic e-commerce system using native PHP
     - [Screenshot](#screenshot)
 - [My process](#my-process)
     - [Built with](#built-with)
-
-[//]: # (  - [Challenge Deployed version]&#40;https://mohamedeldefrawy.github.io/Frontend-Mentor---QR-code-component/&#41;)
-
-- [Author](#author)
+    - [Libraries](#Libraries)
+- [Author](#authors)
 
 ## Overview
 
-### Screenshot
+### GIF
 
-[//]: # (![]&#40;screenshots/Desktop-view.png&#41;)
 
-[//]: # (![]&#40;screenshots/Mobile-view.png&#41;)
+![screen-gif](./Documentation/phpProject.gif)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## My process
+1) Clone the project
+
+   ``` git clone https://github.com/Muhammed-Ismail2017/BasicEcommercePHP.git ```
+
+2) Create [AWS S3 Account](https://aws.amazon.com/s3/)
+3) install [composer](https://getcomposer.org/)
+4) run the Database script
+5) add your S3 key and secret and DB connection in the ```config.php``` 
+6) in the project directory run the following
+    ```
+    $composer install
+    $composer dump-autoload
+    $php -S 127.0.0.1:8000 #to test locally
+    ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built with
 
-[//]: # (- Semantic HTML5 markup)
+* [PHP Native](https://www.php.net/)
+* [JavaScript](https://www.javascript.com/)
+* [Symantic HTML5 markup](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
+* [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Bootstrap](https://getbootstrap.com/)
 
-[//]: # (- CSS custom properties)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-[//]: # (- media query)
+### Libraries
 
-[//]: # (- Flexbox)
+* [composer](https://getcomposer.org/)
+* [AWS S3 Account](https://aws.amazon.com/s3/)
+* [illuminate](https://packagist.org/packages/illuminate/database)
+* [chillerlan](https://packagist.org/packages/chillerlan/php-qrcode)
 
-## Author
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-[//]: # ()
+## Authors
 
-[//]: # (- LinkedIn - [Mohamed Eldefrawy]&#40;https://www.linkedin.com/in/mohamedeldefrawy/&#41;)
 
-[//]: # (- Frontend Mentor - [MohamedEldefrawy]&#40;https://www.frontendmentor.io/profile/MohamedEldefrawy&#41;)
+* LinkedIn - [Mohamed Eldefrawy](https://www.linkedin.com/in/mohamedeldefrawy)
+* LinkedIn - [Abdullah Hegab](https://www.linkedin.com/in/hegab192)
+* LinkedIn - [Mohamed Emad](https://www.linkedin.com/in/mohamed-emad-528570b1)
+* LinkedIn - [Mohamed Ismail](https://www.linkedin.com/in/muhammed-ismail-253692106/)
+* Github   - [Abdelrahman Saleh](https://github.com/AmSaleh21)
+
+<p align="right">(<a href="#top">back to top</a>)</p>

@@ -1,17 +1,14 @@
 <?php
-//require_once("vendor/autoload.php");
-?>
-<!doctype html>
+/*ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);*/
+session_start();
+require_once("vendor/autoload.php");
+//include("Utilities/Routes.php");
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
 
-</body>
-</html>
+/*$userService = new UserService();
+$userService->insertUser("a","1");*/
+/*$orserservice=new OrderServices();
+$orserservice->addOrder(1,1);*/
+
+Routes::router();

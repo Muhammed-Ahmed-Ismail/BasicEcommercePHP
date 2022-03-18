@@ -1,0 +1,206 @@
+
+
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
+
+@media (min-width: 1200px) and (max-width: 1500px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cont h3 {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 0px 10px;
+    }
+    .Call a {
+        font-size: 18px;
+    }
+    .text-bg h1 {
+        font-size: 70px;
+        line-height: 100px;
+    }
+    .food .food_box {
+        margin-top: 85px;
+    }
+    .food_box i img {
+        margin-top: -85px;
+    }
+    .main_form {
+        padding: 60px 30px 80px 30px;
+    }
+    .food .food_box {
+        padding: 0px 15px 30px 15px;
+    }
+    .food .food_box p,
+    .works .works_box p {
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .works .works_box {
+        padding: 0px 15px 30px 15px;
+    }
+    .cont h3 {
+        font-size: 29px;
+        line-height: 44px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .header {
+        padding: 15px 30px 10px 30px;
+    }
+    .mean-container .mean-bar {
+        margin-top: 0px;
+    }
+    .text-bg h1 {
+        font-size: 77px;
+        line-height: 100px;
+    }
+    .text-bg {
+        padding-bottom: 30px;
+    }
+    .titlepage h2 {
+        font-size: 39px;
+    }
+    .cont h3 {
+        font-size: 33px;
+    }
+    .clients_imgfood {
+        padding-right: 0px;
+        padding-top: 75px;
+    }
+    .main_form {
+        padding: 60px 30px 80px 30px;
+    }
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0;
+        width: 100%;
+    }
+    .navigation .navbar-collapse {
+        background: #5a2f27;
+        padding: 20px;
+        margin-top: 52px;
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+        z-index: 999;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #fff;
+    }
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #eda911 !important;
+    }
+    .navigation.navbar-dark .navbar-toggler {
+        border: inherit;
+        float: right;
+        padding-top: 6px;
+    }
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
+    }
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        display: none;
+    }
+    .Call {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .header {
+        padding: 30px 0px 15px 0px;
+    }
+    .logo {
+        text-align: center !important;
+        padding-bottom: 6px;
+        float: left;
+    }
+    .text-bg h1 {
+        font-size: 50px;
+        line-height: 70px;
+    }
+    .works .works_box h4 {
+        margin-left: -42px;
+    }
+    .Call {
+        display: none;
+    }
+    .text-bg {
+        padding-bottom: 30px;
+    }
+    .titlepage h2 {
+        font-size: 29px;
+        line-height: 40px;
+    }
+    .clients_imgfood {
+        padding-right: 0px;
+        padding-top: 75px;
+    }
+    .food .titlepage span {
+        padding: 0;
+    }
+    .main_form {
+        padding: 60px 30px 80px 30px;
+    }
+    .cont h3 {
+        font-size: 19px;
+        line-height: 33px;
+    }
+    .copyright p {
+        font-size: 16px;
+    }
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0;
+        width: 100%;
+        margin-top: -45px;
+    }
+    .navigation .navbar-collapse {
+        background: #5a2f27;
+        padding: 20px;
+        margin-top: 62px;
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+        z-index: 999;
+    }
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #fff;
+    }
+    .navigation.navbar-dark .navbar-toggler {
+        float: right;
+        margin-right: 2px;
+        border: inherit;
+    }
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #eda911 !important;
+    }
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
+    }
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        display: none;
+    }
+    .cont_call h3 {
+        font-size: 33px;
+        line-height: 49px;
+    }
+}
+
