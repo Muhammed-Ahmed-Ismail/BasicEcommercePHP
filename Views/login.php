@@ -36,8 +36,6 @@ if (isset($_POST["login"])) {
             $userCookie->remember_me($_SESSION["user_id"]);
         }
         header("Location:/profile");
-
-
     }
 }
 ?>
@@ -79,13 +77,13 @@ if (isset($_POST["login"])) {
 <body class="main-layout">
 <header>
     <!-- header inner -->
-    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light" style="background: #eae9e4 !important;">
         <a class="navbar-brand" href="#">Spicy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -99,18 +97,14 @@ if (isset($_POST["login"])) {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Profile</a>
                 </li>
-
-                <!--                <li class="nav-item">-->
-                <!--                    <a class="nav-link" href="#">Login</a>-->
-                <!--                </li>-->
-
+            </ul>
+            <ul class="navbar-nav ml-auto">
                 <?php
                 if (isset($_SESSION["email"])) {
                     echo $logoutNavItem;
                 } else
                     echo $loginNavItem;
                 ?>
-
             </ul>
         </div>
     </nav>
@@ -129,7 +123,7 @@ if (isset($_POST["login"])) {
                 </div>
             </div>
             <div class="col-md-6">
-                <form action="<?php $_SERVER["PHP_SELF"] ?>" method="post" id="request" class="main_form">
+                <form action="/login" method="post" id="request" class="main_form">
                     <div class="row">
                         <label class="col-md-12">
                             <input class="contactus" placeholder=" Email" type="text" name="email">
@@ -155,11 +149,11 @@ if (isset($_POST["login"])) {
 <!--  footer -->
 <footer>
     <div class="footer" style="padding-top:19px;">
-        <div class="copyright">
+        <div class="copyright" style="background:#eae9e4!important">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html
+                        <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
                                 Templates</a>
                         </p>
                     </div>
