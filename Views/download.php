@@ -1,13 +1,30 @@
 <?php
-if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
+
+$logoutNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/logout'>Logout</a>
+                </li>";
+
+$profileNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/profile'>Profile</a>
+                </li>";
+
+$downloadNavItem = " <li class='nav-item'>
+                    <a class='nav-link active' href='/downloadarea'>Donwload</a>
+                </li>";
+
+$settingNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/editprofile'>Setting</a>
+                </li>";
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     $productService = new ProductServices();
-    $orderService= new OrderServices();
-    $orderId=$_SESSION["order_id"];
-    $downloadsCountobj=$orderService->getDownloadTimes($orderId);
-   $downloadsCount=$downloadsCountobj->downloads_count;
+    $orderService = new OrderServices();
+    $orderId = $_SESSION["order_id"];
+    $downloadsCountobj = $orderService->getDownloadTimes($orderId);
+    $downloadsCount = $downloadsCountobj->downloads_count;
     $products = $productService->listingUploadedFiles();
 
-}else{
+} else {
     header("Location:/login");
 }
 
@@ -56,7 +73,8 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
 <!-- header -->
 <header>
     <!-- header inner -->
-    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light" style="background: #eae9e4 !important;">
+    <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light"
+         style="background: #eae9e4 !important;">
         <a class="navbar-brand" href="#">Spicy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +83,7 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
             <ul class="navbar-nav">
 
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
 
@@ -74,19 +92,19 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
                 </li>
 
                 <?php
-                if (isset($_SESSION["email"])) {
+                if (isset($_SESSION["loggedin"])) {
                     echo $downloadNavItem;
                     echo $profileNavItem;
+                    echo $settingNavItem;
                 }
                 ?>
 
             </ul>
             <ul class="navbar-nav ml-auto">
                 <?php
-                if (isset($_SESSION["email"])) {
+                if (isset($_SESSION["loggedin"])) {
                     echo $logoutNavItem;
-                } else
-                    echo $loginNavItem;
+                }
                 ?>
             </ul>
         </div>
@@ -127,18 +145,19 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
                     <hr style="background: black"/>
                     <section>
                         <h2 style="color: #FFF">Downloads number</h2>
-                        <strong style="color: #FFF; font-size: large"><?= $downloadsCount?></strong>
+                        <strong style="color: #FFF; font-size: large"><?= $downloadsCount ?></strong>
                     </section>
                     <hr style="background: black"/>
                     <section class="download-links">
                         <h2 style="color: white">Download Links</h2>
-                        <a href="/download?local=1" style="width:120px; height:40px; color:#FFF;" class="btn btn-primary btn-download">
+                        <a href="/download?local=1" style="width:120px; height:40px; color:#FFF;"
+                           class="btn btn-primary btn-download">
                             Our Server
                         </a>
                         <a style="width:120px; height:40px; color:#FFF;" class="btn btn-primary btn-download"
                            target="_blank"
                            href="/download?s3=1"
-                           >S3</a>
+                        >S3</a>
                     </section>
                 </div>
             </div>
@@ -147,7 +166,7 @@ if(isset($_SESSION["loggedin"] )&& $_SESSION["loggedin"]==true) {
     </div>
 </div>
 <!-- end food -->
-<!--  footer -->
+
 <footer>
     <div class="footer" style="padding-top:19px;">
         <div class="copyright" style="background:#eae9e4!important">

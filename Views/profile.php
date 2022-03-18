@@ -1,4 +1,21 @@
 <?php
+
+$logoutNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/logout'>Logout</a>
+                </li>";
+
+$profileNavItem = " <li class='nav-item active'>
+                    <a class='nav-link' href='/profile'>Profile</a>
+                </li>";
+
+$downloadNavItem = " <li class='nav-item'>
+                    <a class='nav-link' href='/downloadarea'>Donwload</a>
+                </li>";
+
+$settingNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/editprofile'>Setting</a>
+                </li>";
+
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     $downloadLink = "/download";
     $orderService = new OrderServices();
@@ -55,49 +72,44 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     <body>
     <header>
         <!-- header inner -->
-        <div class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                        <div class="full">
-                            <div class="center-desk">
-                                <div class="logo">
-                                    <a href="#"><img src="../Static/images/logo.png" alt="#"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarsExample04" aria-controls="navbarsExample04"
-                                    aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarsExample04">
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">About </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/profile">Profile </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="<?= "/logout" ?>">Log Out</a>
-                                    </li>
-                                </ul>
-                                <div class="Call"><a href="#"> <span
-                                                class="yellow">User Name: </span><?= $_SESSION["user_name"] ?></a></div>
-                                <div style="margin-left: 10px" class="Call"><a href="/editprofile"> <span
-                                                class="yellow">Settings</span></a></div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
+        <nav id="CustomNav" class="navbar navbar-expand-lg navbar-light bg-light"
+             style="background: #eae9e4 !important;">
+            <a class="navbar-brand" href="#">Spicy</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                    <?php
+                    if (isset($_SESSION["loggedin"])) {
+                        echo $downloadNavItem;
+                        echo $profileNavItem;
+                        echo $settingNavItem;
+                    }
+                    ?>
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <?php
+                    if (isset($_SESSION["loggedin"])) {
+                        echo $logoutNavItem;
+                    }
+                    ?>
+                </ul>
             </div>
-        </div>
+        </nav>
     </header>
+    <!-- end header inner -->
 
     <div class="food">
         <div class="container">
@@ -110,11 +122,10 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                     </div>
                 </div>
             </div>
-            <div class="row">
-
+            <div class="row" style="justify-content: center">
                 <div class="col-md-4">
                     <div class="food_box">
-                        <i><img src="../Static/images/softwarelogo.png" alt="#"/></i>
+                        <i><img src="../Static/images/softwarelogo.png" alt="logo"/></i>
                         <h4>Awesome Software</h4>
                         <ul class="list-group-item border-primary">
                             <li>Order number : <?= $orderId ?></li>
@@ -128,18 +139,22 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     </div>
 
     <footer>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free Html Templates</a>
-                        </p>
+        <div class="footer" style="padding-top:19px;">
+            <div class="copyright" style="background:#eae9e4!important">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p style="color: rgba(0,0,0,.5) !important;">Copyright 2019 All Right Reserved By <a
+                                        style="color: rgba(0,0,0,.5) !important;" href="https://html.design/"> Free Html
+                                    Templates</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </footer>
+    <!-- end footer -->
 
     </body>
     </html>

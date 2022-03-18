@@ -1,6 +1,6 @@
 <?php
 $loginNavItem = "<li class='nav-item'>
-                    <a class='nav-link' href='/login'>Login</a>
+                    <a class='nav-link active' href='/login'>Login</a>
                 </li>";
 $logoutNavItem = "<li class='nav-item'>
                     <a class='nav-link' href='/logout'>Logout</a>
@@ -11,11 +11,11 @@ $profileNavItem = " <li class='nav-item'>
                 </li>";
 
 $downloadNavItem = " <li class='nav-item'>
-                    <a class='nav-link' href='/download'>Profile</a>
+                    <a class='nav-link' href='/downloadarea'>Donwload</a>
                 </li>";
 
-$settingNavItem =  "<li class='nav-item'>
-                    <a class='nav-link' href='/download'>Setting</a>
+$settingNavItem = "<li class='nav-item'>
+                    <a class='nav-link' href='/editprofile'>Setting</a>
                 </li>";
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
@@ -98,7 +98,7 @@ if (isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password
         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="color: #eda911!important;">
             <ul class="navbar-nav">
 
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
 
@@ -163,6 +163,7 @@ if (isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password
         </div>
     </div>
 </section>
+
 <!--  footer -->
 <footer>
     <div class="footer" style="padding-top:19px;">

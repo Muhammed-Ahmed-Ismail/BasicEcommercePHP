@@ -19,11 +19,11 @@ $profileNavItem = " <li class='nav-item'>
                 </li>";
 
 $downloadNavItem = " <li class='nav-item'>
-                    <a class='nav-link' href='/download'>Profile</a>
+                    <a class='nav-link' href='/downloadarea'>Donwload</a>
                 </li>";
 
 $settingNavItem = "<li class='nav-item'>
-                    <a class='nav-link' href='/download'>Setting</a>
+                    <a class='nav-link' href='/editprofile'>Setting</a>
                 </li>";
 if (isset($_POST["submit"])) {
     $EmailValidateResult = $FormValidator->validate_email("email");
@@ -113,7 +113,7 @@ if (isset($_POST["submit"])) {
                 </li>
 
                 <?php
-                if (isset($_SESSION["email"])) {
+                if (isset($_SESSION["loggedin"])) {
                     echo $downloadNavItem;
                     echo $profileNavItem;
                     echo $settingNavItem;
@@ -123,7 +123,7 @@ if (isset($_POST["submit"])) {
 
             <ul class="navbar-nav ml-auto">
                 <?php
-                if (isset($_SESSION["email"])) {
+                if (isset($_SESSION["loggedin"])) {
                     echo $emailNavItem;
                     echo $logoutNavItem;
                 } else
