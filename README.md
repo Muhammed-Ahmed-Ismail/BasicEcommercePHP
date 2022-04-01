@@ -21,7 +21,7 @@ This is a solution of creating basic e-commerce system using native PHP that all
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Deployed Version
-[Live](http://awesomesoftware.great-site.net/)
+* [Live](http://awesomesoftware.great-site.net/)
 
 ## My process
 1) Clone the project
