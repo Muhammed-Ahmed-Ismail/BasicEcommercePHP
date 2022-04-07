@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b61ee56d-7406-4452-84d3-b2e7f190bf7c" name="Changes" comment="Create get all users service">
-      <change afterPath="$PROJECT_DIR$/Utilities/ProjectUtilities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BasicEcommercePHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BasicEcommercePHP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Download_resources/product.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModifiedDatabaseCode.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ModifiedDatabaseCode.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/ProductServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ProductServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/downloadpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/Views/downloadpage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="b61ee56d-7406-4452-84d3-b2e7f190bf7c" name="Changes" comment="Create get all users service" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +124,7 @@
       <workItem from="1647607416608" duration="116000" />
       <workItem from="1647609718881" duration="763000" />
       <workItem from="1647699805478" duration="233000" />
-      <workItem from="1649336970568" duration="9830000" />
+      <workItem from="1649336970568" duration="10340000" />
     </task>
     <servers />
   </component>
