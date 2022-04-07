@@ -9,6 +9,7 @@ use Illuminate\Database\Capsule\Manager;
 use Illuminate\Support\Collection;
 
 
+
 class ProductServices
 {
     private DatabaseConnector $DBC;
@@ -50,6 +51,11 @@ class ProductServices
             return null;
         }
     }
+    function getProductLink(int $id)
+    {
+        return $this->connection->table("products")->where("product_id", "=", "$id")->select(["download_file_link"])->first();
+
+    }
 
     /**
      * Get specific item from table using id
@@ -58,7 +64,7 @@ class ProductServices
      * @param  $filename
      * @return int
      */
-    function updateAnyProduct($productID, $url, $filename): int
+    function updateProductDate($productID, $url, $filename): int
     {
         return $this->connection->table("products")
             ->where('product_id', $productID)
@@ -137,4 +143,25 @@ class ProductServices
 
         return (string)$request->getUri();
     }
+    public function downloadFromLocalServer(int $orderId, int $productId)
+    {
+        $orderSerivce= new OrderServices();
+        $util=new ProjectUtilities();
+        $count=$orderSerivce->getDownloadTimes($orderId)->downloads_count;
+        echo $count;
+        if($count<7)
+        {
+           $orderSerivce->updateAnyProduct($productId,$orderId,$count+1);
+            $fileLink= $this->getProductLink($productId)->download_file_link;
+            header('Content-Disposition: attachment; filename ="'."product".'.zip"');
+            readfile("$fileLink");
+            $newName=$util->generateRandomString();
+            rename("$fileLink","Download_resources/$newName.zip");
+            $newLink='Download_resources/'.$newName.'.zip';
+            $this->updateProductDate(1,$newLink,'product');
+        }
+        else header("location:/profile");
+
+    }
+
 }
