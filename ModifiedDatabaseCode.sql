@@ -1,7 +1,6 @@
 
-CREATE DATABASE IF NOT EXISTS Ecommerce_PHP_Project;
 
-use Ecommerce_PHP_Project;
+use epiz_31339334_Ecommerce_php_project;
 
 CREATE TABLE IF NOT EXISTS `users`
 (
