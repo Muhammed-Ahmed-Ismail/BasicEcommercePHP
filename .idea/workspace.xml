@@ -7,7 +7,6 @@
     <list default="true" id="b61ee56d-7406-4452-84d3-b2e7f190bf7c" name="Changes" comment="Create get all users service">
       <change afterPath="$PROJECT_DIR$/Utilities/ProjectUtilities.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/BasicEcommercePHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BasicEcommercePHP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Download_resources/product.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ModifiedDatabaseCode.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ModifiedDatabaseCode.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/ProductServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ProductServices.php" afterDir="false" />
