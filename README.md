@@ -62,10 +62,10 @@ This is a solution of creating basic e-commerce system using native PHP that all
 ## Authors
 
 
-* LinkedIn - [Mohamed Eldefrawy](https://www.linkedin.com/in/mohamedeldefrawy)
-* LinkedIn - [Abdullah Hegab](https://www.linkedin.com/in/hegab192)
-* LinkedIn - [Mohamed Emad](https://www.linkedin.com/in/mohamed-emad-528570b1)
-* LinkedIn - [Mohamed Ismail](https://www.linkedin.com/in/muhammed-ismail-253692106/)
-* Github   - [Abdelrahman Saleh](https://github.com/AmSaleh21)
+* Mohamed Eldefrawy &emsp; [LinkedIn](https://www.linkedin.com/in/mohamedeldefrawy) &emsp; [Github](https://github.com/MohamedEldefrawy)
+* Abdullah Hegab    &emsp;   [LinkedIn](https://www.linkedin.com/in/hegab192) &emsp;  [Github](https://github.com/Hegabovic)
+* Mohamed Emad &emsp; [LinkedIn](https://www.linkedin.com/in/mohamed-emad-528570b1) &emsp; [Github](https://github.com/Mohamed-EmadEldin)
+* Mohamed Ismail &emsp; [LinkedIn](https://www.linkedin.com/in/muhammed-ismail-253692106/) &emsp; [Github](https://github.com/Muhammed-Ismail2017)
+* Abdelrahman Saleh &emsp; [linkedIn](https://www.linkedin.com/in/amsaleh21) &emsp; [Github](https://github.com/AmSaleh21)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
